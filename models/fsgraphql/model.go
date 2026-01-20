@@ -196,6 +196,16 @@ func (fp FeidePersonResponse) String() string {
 	return toString(fp)
 }
 
+// EmployeePersonResponse is the reponse model for the data returned by the personProfilerGittAnsattnumre
+// query from FS GraphQL API.
+type EmployeePersonResponse struct {
+	PersonProfilerGittAnsattnumre []PersonProfil `json:"personProfilerGittAnsattnumre"`
+}
+
+func (ep EmployeePersonResponse) String() string {
+	return toString(ep)
+}
+
 func toString(v any) string {
 	buf := &bytes.Buffer{}
 	if err := json.NewEncoder(buf).Encode(v); err != nil {
