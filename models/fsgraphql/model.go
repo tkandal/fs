@@ -186,6 +186,8 @@ func (fr FagpersonResponse) String() string {
 	return toString(fr)
 }
 
+// FeidePersonResponse is the reponse model for the data returned by the personProfilerGittFeideBrukere
+// query from FS GraphQL API.
 type FeidePersonResponse struct {
 	PersonProfilerGittFeideBrukere []PersonProfil `json:"personProfilerGittFeideBrukere"`
 }
