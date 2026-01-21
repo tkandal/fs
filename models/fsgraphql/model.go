@@ -208,9 +208,9 @@ func (ep EmployeePersonResponse) String() string {
 
 // UgyldigInput contains the error details.
 type UgyldigInput struct {
-	Typename string   `json:"__typename,omitempty" graphql:"__typename"`
-	Mesage   string   `json:"message,omitempty"    graphql:"message"`
-	Path     []string `json:"path,omitempty"       graphql:"path"`
+	Typename string   `json:"__typename" graphql:"__typename"`
+	Mesage   string   `json:"message"    graphql:"message"`
+	Path     []string `json:"path"       graphql:"path"`
 }
 
 func (gi UgyldigInput) String() string {
@@ -238,7 +238,7 @@ func (em ErrorMessages) String() string {
 
 // ResponseErrors is the model where errors are collected if a mutation fails.
 type ResponseErrors struct {
-	Errors []UgyldigInput `json:"errors,omitempty"`
+	Errors []UgyldigInput `json:"errors"`
 }
 
 func (re ResponseErrors) String() string {
