@@ -206,6 +206,54 @@ func (ep EmployeePersonResponse) String() string {
 	return toString(ep)
 }
 
+// UgyldigInput contains the error details.
+type UgyldigInput struct {
+	Typename string   `json:"__typename,omitempty" graphql:"__typename"`
+	Mesage   string   `json:"message,omitempty"    graphql:"message"`
+	Path     []string `json:"path,omitempty"       graphql:"path"`
+}
+
+func (gi UgyldigInput) String() string {
+	return toString(gi)
+}
+
+// Errors contains all the error messages or null if the mutation was successful.
+type Errors struct {
+	UgyldigInput UgyldigInput `graphql:"... on UgyldigInput"`
+}
+
+func (e Errors) String() string {
+	return toString(e)
+}
+
+// ErrorMessages is a type that is used for calling mutation queries
+// and receives mutation errors.
+type ErrorMessages struct {
+	Errors Errors `json:"errors" graphql:"errors"`
+}
+
+func (em ErrorMessages) String() string {
+	return toString(em)
+}
+
+// ResponseErrors is the model where errors are collected if a mutation fails.
+type ResponseErrors struct {
+	Errors []UgyldigInput `json:"errors,omitempty"`
+}
+
+func (re ResponseErrors) String() string {
+	return toString(re)
+}
+
+// TelefonResponse is the model that is received as response for phone number mutations.
+type TelefonResponse struct {
+	EndreTelefonnumre ResponseErrors `json:"endreTelefonnumre"`
+}
+
+func (tr TelefonResponse) String() string {
+	return toString(tr)
+}
+
 func toString(v any) string {
 	buf := &bytes.Buffer{}
 	if err := json.NewEncoder(buf).Encode(v); err != nil {
