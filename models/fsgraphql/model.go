@@ -227,7 +227,7 @@ func (e Errors) String() string {
 }
 
 // ErrorMessages is a type that is used for calling mutation queries
-// and receives mutation errors.
+// and receives mutation errors if error(s) occur.
 type ErrorMessages struct {
 	Errors Errors `json:"errors" graphql:"errors"`
 }
