@@ -23,5 +23,9 @@ type Edges struct {
 
 // Organisasjonsenheter ...
 type Organisasjonsenheter struct {
+	Edges Edges `json:"edges"`
+}
+
+type OrganisasjonsenheterResponse struct {
 	Edges []Edges `json:"edges"`
 }
