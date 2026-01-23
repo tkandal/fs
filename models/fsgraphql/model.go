@@ -254,6 +254,16 @@ func (tr TelefonResponse) String() string {
 	return toString(tr)
 }
 
+// FagpersonerGittFodselsnumreResponse is the model that is received as response when
+// creating a new person by NIN.
+type FagpersonerGittFodselsnumreResponse struct {
+	OpprettFagpersonerGittFodselsnumre ResponseErrors `json:"opprettFagpersonerGittFodselsnumre"`
+}
+
+func (ff FagpersonerGittFodselsnumreResponse) String() string {
+	return toString(ff)
+}
+
 func toString(v any) string {
 	buf := &bytes.Buffer{}
 	if err := json.NewEncoder(buf).Encode(v); err != nil {
