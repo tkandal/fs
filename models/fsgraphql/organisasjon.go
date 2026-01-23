@@ -27,5 +27,34 @@ type Organisasjonsenheter struct {
 }
 
 type OrganisasjonsenheterResponse struct {
-	Organisasjonsenheter Organisasjonsenheter `json:"organisasjonsenheter"`
+	Organisasjonsenheter struct {
+		Edges []Edges `json:"edges"`
+	} `json:"organisasjonsenheter"`
 }
+
+/*
+	Data struct {
+		Organisasjonsenheter struct {
+			Edges []struct {
+				Node struct {
+					ErAktiv         bool   `json:"erAktiv"`
+					Forkortelse     string `json:"forkortelse"`
+					Gruppenummer    string `json:"gruppenummer"`
+					ID              string `json:"id"`
+					Instituttnummer string `json:"instituttnummer"`
+					Fakultet        struct {
+						Fakultetsnummer string `json:"fakultetsnummer"`
+						ID              string `json:"id"`
+					} `json:"fakultet"`
+					NavnAlleSprak struct {
+						En string `json:"en"`
+						Nn any    `json:"nn"`
+						Nb string `json:"nb"`
+						Se any    `json:"se"`
+					} `json:"navnAlleSprak"`
+				} `json:"node"`
+				Cursor string `json:"cursor"`
+			} `json:"edges"`
+		} `json:"organisasjonsenheter"`
+	} `json:"data"`
+*/
