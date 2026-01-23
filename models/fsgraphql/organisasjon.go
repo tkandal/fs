@@ -27,5 +27,5 @@ type Organisasjonsenheter struct {
 }
 
 type OrganisasjonsenheterResponse struct {
-	Edges []Edges `json:"edges"`
+	Organisasjonsenheter Organisasjonsenheter `json:"organisasjonsenheter"`
 }
