@@ -4,6 +4,13 @@ package fsgraphql
  * Copyright (c) 2026 Norwegian University of Science and Technology, Trondheim, Norway
  */
 
+type PageInfo struct {
+	EndCursor       string `json:"endCursor"`
+	HasNextPage     bool   `json:"hasNextPage"`
+	HasPreviousPage bool   `json:"hasPreviousPage"`
+	StartCursor     string `json:"startCursor"`
+}
+
 // Node is the model for an organisation unit.
 type Node struct {
 	ErAktiv         bool          `json:"erAktiv"`
@@ -23,38 +30,15 @@ type Edges struct {
 
 // Organisasjonsenheter ...
 type Organisasjonsenheter struct {
-	Edges Edges `json:"edges"`
+	Edges      Edges    `json:"edges"`
+	TotalCount int      `json:"totalCount"`
+	PageInfo   PageInfo `json:"pageInfo"`
 }
 
 type OrganisasjonsenheterResponse struct {
 	Organisasjonsenheter struct {
-		Edges []Edges `json:"edges"`
+		Edges      []Edges  `json:"edges"`
+		TotalCount int      `json:"totalCount"`
+		PageInfo   PageInfo `json:"pageInfo"`
 	} `json:"organisasjonsenheter"`
 }
-
-/*
-	Data struct {
-		Organisasjonsenheter struct {
-			Edges []struct {
-				Node struct {
-					ErAktiv         bool   `json:"erAktiv"`
-					Forkortelse     string `json:"forkortelse"`
-					Gruppenummer    string `json:"gruppenummer"`
-					ID              string `json:"id"`
-					Instituttnummer string `json:"instituttnummer"`
-					Fakultet        struct {
-						Fakultetsnummer string `json:"fakultetsnummer"`
-						ID              string `json:"id"`
-					} `json:"fakultet"`
-					NavnAlleSprak struct {
-						En string `json:"en"`
-						Nn any    `json:"nn"`
-						Nb string `json:"nb"`
-						Se any    `json:"se"`
-					} `json:"navnAlleSprak"`
-				} `json:"node"`
-				Cursor string `json:"cursor"`
-			} `json:"edges"`
-		} `json:"organisasjonsenheter"`
-	} `json:"data"`
-*/
