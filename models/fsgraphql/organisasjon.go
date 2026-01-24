@@ -11,6 +11,10 @@ type PageInfo struct {
 	StartCursor     string `json:"startCursor"`
 }
 
+func (pi PageInfo) String() string {
+	return toString(pi)
+}
+
 // Node is the model for an organisation unit.
 type Node struct {
 	ErAktiv         bool          `json:"erAktiv"`
@@ -22,10 +26,18 @@ type Node struct {
 	NavnAlleSprak   NavnAlleSprak `json:"navnAlleSprak"`
 }
 
+func (n Node) String() string {
+	return toString(n)
+}
+
 // Edges ...
 type Edges struct {
 	Node   Node   `json:"node"`
 	Cursor string `json:"cursor"`
+}
+
+func (e Edges) String() string {
+	return toString(e)
 }
 
 // Organisasjonsenheter ...
@@ -35,10 +47,18 @@ type Organisasjonsenheter struct {
 	PageInfo   PageInfo `json:"pageInfo"`
 }
 
+func (o Organisasjonsenheter) String() string {
+	return toString(o)
+}
+
 type OrganisasjonsenheterResponse struct {
 	Organisasjonsenheter struct {
 		Edges      []Edges  `json:"edges"`
 		TotalCount int      `json:"totalCount"`
 		PageInfo   PageInfo `json:"pageInfo"`
 	} `json:"organisasjonsenheter"`
+}
+
+func (or OrganisasjonsenheterResponse) String() string {
+	return toString(or)
 }
