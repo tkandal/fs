@@ -15,6 +15,24 @@ func (pi PageInfo) String() string {
 	return toString(pi)
 }
 
+type EierInstitusjon struct {
+	ID string `json:"id"`
+}
+
+func (ei EierInstitusjon) String() string {
+	return toString(ei)
+}
+
+type Organisasjon struct {
+	ID              string          `json:"id"`
+	Forkortelse     string          `json:"forkortelse"`
+	EierInstitusjon EierInstitusjon `json:"eierInstitusjon"`
+}
+
+func (o Organisasjon) String() string {
+	return toString(o)
+}
+
 // Node is the model for an organisation unit.
 type Node struct {
 	ErAktiv         bool          `json:"erAktiv"`
@@ -24,6 +42,7 @@ type Node struct {
 	Instituttnummer string        `json:"instituttnummer"`
 	Fakultet        Fakultet      `json:"fakultet"`
 	NavnAlleSprak   NavnAlleSprak `json:"navnAlleSprak"`
+	Organisasjon    Organisasjon  `json:"organisasjon"`
 }
 
 func (n Node) String() string {
