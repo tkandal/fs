@@ -23,6 +23,10 @@ type LandQuery struct {
 	PageInfo   PageInfo `json:"pageInfo"`
 }
 
+func (lq LandQuery) String() string {
+	return toString(lq)
+}
+
 // LandResponse is the response from the land query.
 type LandResponse struct {
 	Land struct {
@@ -30,4 +34,8 @@ type LandResponse struct {
 		TotalCount int      `json:"totalCount"`
 		PageInfo   PageInfo `json:"pageInfo"`
 	} `json:"land"`
+}
+
+func (lr LandResponse) String() string {
+	return toString(lr)
 }
