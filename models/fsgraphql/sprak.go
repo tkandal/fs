@@ -9,5 +9,4 @@ type NavnAlleSprak struct {
 	EN string `json:"en"`
 	NN string `json:"nn"`
 	NB string `json:"nb"`
-	SE string `json:"se"`
 }
