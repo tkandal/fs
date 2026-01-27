@@ -61,7 +61,7 @@ func (e Edges) String() string {
 
 // Organisasjonsenheter ...
 type Organisasjonsenheter struct {
-	Edges      Edges    `json:"edges"`
+	Nodes      Node     `json:"nodes"`
 	TotalCount int      `json:"totalCount"`
 	PageInfo   PageInfo `json:"pageInfo"`
 }
@@ -72,7 +72,7 @@ func (o Organisasjonsenheter) String() string {
 
 type OrganisasjonsenheterResponse struct {
 	Organisasjonsenheter struct {
-		Edges      []Edges  `json:"edges"`
+		Nodes      []Node   `json:"nodes"`
 		TotalCount int      `json:"totalCount"`
 		PageInfo   PageInfo `json:"pageInfo"`
 	} `json:"organisasjonsenheter"`
