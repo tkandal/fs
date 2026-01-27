@@ -74,17 +74,6 @@ func (t Telefon) String() string {
 	return toString(t)
 }
 
-// Land is the model for country from the FS GraphQL API.
-type Land struct {
-	ID            string `json:"id,omitempty"            graphql:"id"`
-	LandkodeAlfa2 string `json:"landkodeAlfa2,omitempty" graphql:"landkodeAlfa2"`
-	LandkodeAlfa3 string `json:"landkodeAlfa3,omitempty" graphql:"landkodeAlfa3"`
-}
-
-func (l Land) String() string {
-	return toString(l)
-}
-
 // Morsmaal is the model for native language from the FS GraphQL API.
 type Morsmaal struct {
 	ID          string `json:"id,omitempty"          graphql:"id"`
