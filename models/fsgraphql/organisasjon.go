@@ -33,8 +33,8 @@ func (o Organisasjon) String() string {
 	return toString(o)
 }
 
-// Node is the model for an organisation unit.
-type Node struct {
+// OrganizationNode is the model for an organization unit.
+type OrganizationNode struct {
 	ErAktiv         bool          `json:"erAktiv"`
 	Forkortelse     string        `json:"forkortelse"`
 	Gruppenummer    string        `json:"gruppenummer"`
@@ -45,36 +45,27 @@ type Node struct {
 	Organisasjon    Organisasjon  `json:"organisasjon"`
 }
 
-func (n Node) String() string {
-	return toString(n)
+func (on OrganizationNode) String() string {
+	return toString(on)
 }
 
-// Edges ...
-type Edges struct {
-	Node   Node   `json:"node"`
-	Cursor string `json:"cursor"`
-}
-
-func (e Edges) String() string {
-	return toString(e)
-}
-
-// Organisasjonsenheter ...
+// Organisasjonsenheter is the model for the organization query.
 type Organisasjonsenheter struct {
-	Nodes      Node     `json:"nodes"`
-	TotalCount int      `json:"totalCount"`
-	PageInfo   PageInfo `json:"pageInfo"`
+	Nodes      OrganizationNode `json:"nodes"`
+	TotalCount int              `json:"totalCount"`
+	PageInfo   PageInfo         `json:"pageInfo"`
 }
 
 func (o Organisasjonsenheter) String() string {
 	return toString(o)
 }
 
+// OrganisasjonsenheterResponse is the reponse from the organization query.
 type OrganisasjonsenheterResponse struct {
 	Organisasjonsenheter struct {
-		Nodes      []Node   `json:"nodes"`
-		TotalCount int      `json:"totalCount"`
-		PageInfo   PageInfo `json:"pageInfo"`
+		Nodes      []OrganizationNode `json:"nodes"`
+		TotalCount int                `json:"totalCount"`
+		PageInfo   PageInfo           `json:"pageInfo"`
 	} `json:"organisasjonsenheter"`
 }
 
