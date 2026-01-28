@@ -11,8 +11,8 @@ import (
 
 // Fakultet is the mode for faculty from the FS GraphQL API.
 type Fakultet struct {
-	ID              string `json:"id,omitempty"              graphql:"id"`
-	Fakultetsnummer string `json:"fakultetsnummer,omitempty" graphql:"fakultetsnummer"`
+	ID              string `json:"id"              graphql:"id"`
+	Fakultetsnummer string `json:"fakultetsnummer" graphql:"fakultetsnummer"`
 }
 
 func (f Fakultet) String() string {
@@ -21,10 +21,10 @@ func (f Fakultet) String() string {
 
 // AnsattVed is the model for affiliation from the FS GraphQL API.
 type AnsattVed struct {
-	ID              string   `json:"id,omitempty"              graphql:"id"`
-	Instituttnummer string   `json:"instituttnummer,omitempty" graphql:"instituttnummer"`
-	Gruppenummer    string   `json:"gruppenummer,omitempty"    graphql:"gruppenummer"`
-	Fakultet        Fakultet `json:"fakultet"                  graphql:"fakultet"`
+	ID              string   `json:"id"              graphql:"id"`
+	Instituttnummer string   `json:"instituttnummer" graphql:"instituttnummer"`
+	Gruppenummer    string   `json:"gruppenummer"    graphql:"gruppenummer"`
+	Fakultet        Fakultet `json:"fakultet"        graphql:"fakultet"`
 }
 
 func (av AnsattVed) String() string {
@@ -33,9 +33,9 @@ func (av AnsattVed) String() string {
 
 // Fagperson er the model for faculty staff from the FS GraphQL API.
 type Fagperson struct {
-	ErAktiv   bool      `json:"erAktiv,omitempty" graphql:"erAktiv"`
-	AnsattVed AnsattVed `json:"ansattVed"         graphql:"ansattVed"`
-	ErEkstern bool      `json:"erEkstern"         graphql:"erEkstern"`
+	ErAktiv   bool      `json:"erAktiv"   graphql:"erAktiv"`
+	AnsattVed AnsattVed `json:"ansattVed" graphql:"ansattVed"`
+	ErEkstern bool      `json:"erEkstern" graphql:"erEkstern"`
 }
 
 func (fp Fagperson) String() string {
@@ -44,10 +44,10 @@ func (fp Fagperson) String() string {
 
 // Adresse is model for address from the FS GraphQL API.
 type Adresse struct {
-	Co               string `json:"co,omitempty"               graphql:"co"`
-	Gate             string `json:"gate,omitempty"             graphql:"gate"`
-	Land             string `json:"land,omitempty"             graphql:"land"`
-	PostnummerOgSted string `json:"postnummerOgSted,omitempty" graphql:"postnummerOgSted"`
+	Co               string `json:"co"               graphql:"co"`
+	Gate             string `json:"gate"             graphql:"gate"`
+	Land             string `json:"land"             graphql:"land"`
+	PostnummerOgSted string `json:"postnummerOgSted" graphql:"postnummerOgSted"`
 }
 
 func (a Adresse) String() string {
@@ -56,8 +56,8 @@ func (a Adresse) String() string {
 
 // Navn is the model for full name from the FS GraphQL API.
 type Navn struct {
-	Etternavn string `json:"etternavn,omitempty" graphql:"etternavn"`
-	Fornavn   string `json:"fornavn,omitempty"   graphql:"fornavn"`
+	Etternavn string `json:"etternavn" graphql:"etternavn"`
+	Fornavn   string `json:"fornavn"   graphql:"fornavn"`
 }
 
 func (n Navn) String() string {
@@ -66,8 +66,8 @@ func (n Navn) String() string {
 
 // Telefon is model for phone number from the FS GraphQL API.
 type Telefon struct {
-	Landnummer string `json:"landnummer,omitempty" graphql:"landnummer"`
-	Nummer     string `json:"nummer,omitempty"     graphql:"nummer"`
+	Landnummer string `json:"landnummer" graphql:"landnummer"`
+	Nummer     string `json:"nummer"     graphql:"nummer"`
 }
 
 func (t Telefon) String() string {
@@ -76,9 +76,9 @@ func (t Telefon) String() string {
 
 // Morsmaal is the model for native language from the FS GraphQL API.
 type Morsmaal struct {
-	ID          string `json:"id,omitempty"          graphql:"id"`
-	ISO6391Kode string `json:"iso6391Kode,omitempty" graphql:"iso6391Kode"`
-	ISO6392Kode string `json:"iso6392Kode,omitempty" graphql:"iso6392Kode"`
+	ID          string `json:"id"          graphql:"id"`
+	ISO6391Kode string `json:"iso6391Kode" graphql:"iso6391Kode"`
+	ISO6392Kode string `json:"iso6392Kode" graphql:"iso6392Kode"`
 }
 
 func (mm Morsmaal) String() string {
@@ -87,8 +87,8 @@ func (mm Morsmaal) String() string {
 
 // Pass is the model for passport from the FS GraphQL API.
 type Pass struct {
-	Passnummer string `json:"passnummer,omitempty" graphql:"passnummer"`
-	Land       Land   `json:"land"                 graphql:"land"`
+	Passnummer string `json:"passnummer" graphql:"passnummer"`
+	Land       Land   `json:"land"       graphql:"land"`
 }
 
 func (p Pass) String() string {
@@ -97,8 +97,8 @@ func (p Pass) String() string {
 
 // Statsborgerskap is the model for citizenship from FS GraphQL API.
 type Statsborgerskap struct {
-	ID   string `json:"id,omitempty" graphql:"id"`
-	Land Land   `json:"land"         graphql:"land"`
+	ID   string `json:"id"   graphql:"id"`
+	Land Land   `json:"land" graphql:"land"`
 }
 
 func (sb Statsborgerskap) String() string {
@@ -107,8 +107,8 @@ func (sb Statsborgerskap) String() string {
 
 // Tittel is a model for title from FS GraphQL API.
 type Tittel struct {
-	EN string `json:"en,omitempty" graphql:"en"`
-	NO string `json:"no,omitempty" graphql:"no"`
+	EN string `json:"en" graphql:"en"`
+	NO string `json:"no" graphql:"no"`
 }
 
 func (t Tittel) String() string {
@@ -117,27 +117,27 @@ func (t Tittel) String() string {
 
 // PersonProfil is the model for a person from FS GraphQL API.
 type PersonProfil struct {
-	ID                     string            `json:"id"                          graphql:"id"`
-	Ansattnummer           string            `json:"ansattnummer,omitempty"      graphql:"ansattnummer"`
-	ArbeidsEpost           string            `json:"arbeidsEpost,omitempty"      graphql:"arbeidsEpost"`
-	Fagperson              Fagperson         `json:"fagperson"                   graphql:"fagperson"`
-	ArbeidsTelefon         Telefon           `json:"arbeidsTelefon"              graphql:"arbeidsTelefon"`
-	FeideBruker            string            `json:"feideBruker,omitempty"       graphql:"feideBruker"`
-	Fodselsdato            string            `json:"fodselsdato,omitempty"       graphql:"fodselsdato"`
-	Fodselsnummertype      string            `json:"fodselsnummertype,omitempty" graphql:"fodselsnummertype"`
-	Kjonn                  string            `json:"kjonn,omitempty"             graphql:"kjonn"`
-	Maalform               string            `json:"maalform,omitempty"          graphql:"maalform"`
-	MobilTelefon           Telefon           `json:"mobilTelefon"                graphql:"mobilTelefon"`
-	Morsmaal               Morsmaal          `json:"morsmaal"                    graphql:"morsmaal"`
-	Pass                   []Pass            `json:"pass"                        graphql:"pass"`
-	Personlopenummer       string            `json:"personlopenummer,omitempty"  graphql:"personlopenummer"`
-	PrivatEpost            string            `json:"privatEpost,omitempty"       graphql:"privatEpost"`
-	Postadresse            Adresse           `json:"postadresse"                 graphql:"postadresse"`
-	Statsborgerskap        []Statsborgerskap `json:"statsborgerskap"             graphql:"statsborgerskap"`
-	Fodselsnummer          string            `json:"fodselsnummer,omitempty"     graphql:"fodselsnummer"`
-	FolkeregistrertAdresse Adresse           `json:"folkeregistrertAdresse"      graphql:"folkeregistrertAdresse"`
-	Navn                   Navn              `json:"navn"                        graphql:"navn"`
-	PrivatTelefon          Telefon           `json:"privatTelefon"               graphql:"privatTelefon"`
+	ID                     string            `json:"id"                     graphql:"id"`
+	Ansattnummer           string            `json:"ansattnummer"           graphql:"ansattnummer"`
+	ArbeidsEpost           string            `json:"arbeidsEpost"           graphql:"arbeidsEpost"`
+	Fagperson              Fagperson         `json:"fagperson"              graphql:"fagperson"`
+	ArbeidsTelefon         Telefon           `json:"arbeidsTelefon"         graphql:"arbeidsTelefon"`
+	FeideBruker            string            `json:"feideBruker"            graphql:"feideBruker"`
+	Fodselsdato            string            `json:"fodselsdato"            graphql:"fodselsdato"`
+	Fodselsnummertype      string            `json:"fodselsnummertype"      graphql:"fodselsnummertype"`
+	Kjonn                  string            `json:"kjonn"                  graphql:"kjonn"`
+	Maalform               string            `json:"maalform"               graphql:"maalform"`
+	MobilTelefon           Telefon           `json:"mobilTelefon"           graphql:"mobilTelefon"`
+	Morsmaal               Morsmaal          `json:"morsmaal"               graphql:"morsmaal"`
+	Pass                   []Pass            `json:"pass"                   graphql:"pass"`
+	Personlopenummer       string            `json:"personlopenummer"       graphql:"personlopenummer"`
+	PrivatEpost            string            `json:"privatEpost"            graphql:"privatEpost"`
+	Postadresse            Adresse           `json:"postadresse"            graphql:"postadresse"`
+	Statsborgerskap        []Statsborgerskap `json:"statsborgerskap"        graphql:"statsborgerskap"`
+	Fodselsnummer          string            `json:"fodselsnummer"          graphql:"fodselsnummer"`
+	FolkeregistrertAdresse Adresse           `json:"folkeregistrertAdresse" graphql:"folkeregistrertAdresse"`
+	Navn                   Navn              `json:"navn"                   graphql:"navn"`
+	PrivatTelefon          Telefon           `json:"privatTelefon"          graphql:"privatTelefon"`
 }
 
 func (pf PersonProfil) String() string {

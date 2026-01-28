@@ -6,7 +6,7 @@ package fsgraphql
 
 // NavnAlleSprak is the model for names where it is possible to query for names.
 type NavnAlleSprak struct {
-	EN string `json:"en"`
-	NN string `json:"nn"`
-	NB string `json:"nb"`
+	EN string `json:"en" graphql:"en"`
+	NN string `json:"nn" graphql:"nn"`
+	NB string `json:"nb" graphql:"nb"`
 }
