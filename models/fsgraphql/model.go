@@ -253,6 +253,22 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 	return toString(ff)
 }
 
+type OpprettPersonProfilerUtenFodselsnummerResponse struct {
+	OpprettPersonProfilerUtenFodselsnummer ResponseErrors `json:"opprettPersonProfilerUtenFodselsnummer"`
+}
+
+func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
+	return toString(uf)
+}
+
+type OpprettFagpersonerGittPassResponse struct {
+	OpprettFagpersonerGittPass ResponseErrors `json:"opprettFagpersonerGittPass"`
+}
+
+func (fp OpprettFagpersonerGittPassResponse) String() string {
+	return toString(fp)
+}
+
 func toString(v any) string {
 	buf := &bytes.Buffer{}
 	if err := json.NewEncoder(buf).Encode(v); err != nil {
