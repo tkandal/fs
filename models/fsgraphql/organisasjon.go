@@ -1,5 +1,7 @@
 package fsgraphql
 
+import "reflect"
+
 /*
  * Copyright (c) 2026 Norwegian University of Science and Technology, Trondheim, Norway
  */
@@ -11,12 +13,17 @@ type PageInfo struct {
 	StartCursor     string `json:"startCursor"     graphql:"startCursor"`
 }
 
-func (pi PageInfo) String() string {
-	return toString(pi)
-}
-
 type EierInstitusjon struct {
 	ID string `json:"id" graphql:"id"`
+}
+
+// Equal checks if this EierInstitusjon is equal to the given EierInstitusjon.
+func (ei EierInstitusjon) Equal(o EierInstitusjon) bool {
+	return reflect.DeepEqual(ei, o)
+}
+
+func (pi PageInfo) String() string {
+	return toString(pi)
 }
 
 func (ei EierInstitusjon) String() string {
@@ -27,6 +34,11 @@ type Organisasjon struct {
 	ID              string          `json:"id"              graphql:"id"`
 	Forkortelse     string          `json:"forkortelse"     graphql:"forkortelse"`
 	EierInstitusjon EierInstitusjon `json:"eierInstitusjon" graphql:"eierInstitusjon"`
+}
+
+// Equal checks of this Organisasjon is equal to the given Organisasjon.
+func (o Organisasjon) Equal(v Organisasjon) bool {
+	return reflect.DeepEqual(o, v)
 }
 
 func (o Organisasjon) String() string {
@@ -43,6 +55,11 @@ type OrganizationNode struct {
 	Fakultet        Fakultet      `json:"fakultet"        graphql:"fakultet"`
 	NavnAlleSprak   NavnAlleSprak `json:"navnAlleSprak"   graphql:"navnAlleSprak"`
 	Organisasjon    Organisasjon  `json:"organisasjon"    graphql:"organisasjon"`
+}
+
+// Equal check if this OrganizationNode is equal to the given OrganizationNode.
+func (on OrganizationNode) Equal(o OrganizationNode) bool {
+	return reflect.DeepEqual(on, o)
 }
 
 func (on OrganizationNode) String() string {

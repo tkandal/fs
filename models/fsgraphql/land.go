@@ -1,5 +1,7 @@
 package fsgraphql
 
+import "reflect"
+
 /*
  * Copyright (c) 2026 Norwegian University of Science and Technology, Trondheim, Norway
  */
@@ -14,6 +16,11 @@ type Land struct {
 
 func (l Land) String() string {
 	return toString(l)
+}
+
+// Equal check if this Land object is equal to the given Land object.
+func (l Land) Equal(o Land) bool {
+	return reflect.DeepEqual(l, o)
 }
 
 // LandQuery is the mpdel for the land query.
