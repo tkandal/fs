@@ -243,8 +243,8 @@ func (tr TelefonResponse) String() string {
 	return toString(tr)
 }
 
-// FagpersonerGittFodselsnumreResponse is the model that is received as response when
-// creating a new person by NIN.
+// FagpersonerGittFodselsnumreResponse is the model for the response which is
+// received when creating a new person by NIN.
 type FagpersonerGittFodselsnumreResponse struct {
 	OpprettFagpersonerGittFodselsnumre ResponseErrors `json:"opprettFagpersonerGittFodselsnumre"`
 }
@@ -253,6 +253,8 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 	return toString(ff)
 }
 
+// OpprettPersonProfilerUtenFodselsnummerResponse is the model for the response which is
+// received when creating a new person.
 type OpprettPersonProfilerUtenFodselsnummerResponse struct {
 	OpprettPersonProfilerUtenFodselsnummer ResponseErrors `json:"opprettPersonProfilerUtenFodselsnummer"`
 }
@@ -261,6 +263,8 @@ func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
 	return toString(uf)
 }
 
+// OpprettFagpersonerGittPassResponse is model for the response which is received when
+// creating a new person by passort.
 type OpprettFagpersonerGittPassResponse struct {
 	OpprettFagpersonerGittPass ResponseErrors `json:"opprettFagpersonerGittPass"`
 }
