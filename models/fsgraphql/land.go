@@ -14,13 +14,17 @@ type Land struct {
 	NavnAlleSprak NavnAlleSprak `json:"navnAlleSprak" graphql:"navnAlleSprak"`
 }
 
-func (l Land) String() string {
-	return toString(l)
-}
-
 // Equal check if this Land object is equal to the given Land object.
 func (l Land) Equal(o Land) bool {
 	return reflect.DeepEqual(l, o)
+}
+
+func (l Land) IsEmpty() bool {
+	return reflect.DeepEqual(Land{}, l)
+}
+
+func (l Land) String() string {
+	return toString(l)
 }
 
 // LandQuery is the mpdel for the land query.

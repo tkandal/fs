@@ -13,6 +13,18 @@ type PageInfo struct {
 	StartCursor     string `json:"startCursor"     graphql:"startCursor"`
 }
 
+func (pi PageInfo) Equal(o PageInfo) bool {
+	return reflect.DeepEqual(pi, o)
+}
+
+func (pi PageInfo) IsEmpty() bool {
+	return reflect.DeepEqual(PageInfo{}, pi)
+}
+
+func (pi PageInfo) String() string {
+	return toString(pi)
+}
+
 type EierInstitusjon struct {
 	ID string `json:"id" graphql:"id"`
 }
@@ -22,8 +34,8 @@ func (ei EierInstitusjon) Equal(o EierInstitusjon) bool {
 	return reflect.DeepEqual(ei, o)
 }
 
-func (pi PageInfo) String() string {
-	return toString(pi)
+func (ei EierInstitusjon) IsEmpty() bool {
+	return reflect.DeepEqual(EierInstitusjon{}, ei)
 }
 
 func (ei EierInstitusjon) String() string {
@@ -37,12 +49,16 @@ type Organisasjon struct {
 }
 
 // Equal checks of this Organisasjon is equal to the given Organisasjon.
-func (o Organisasjon) Equal(v Organisasjon) bool {
-	return reflect.DeepEqual(o, v)
+func (org Organisasjon) Equal(o Organisasjon) bool {
+	return reflect.DeepEqual(org, o)
 }
 
-func (o Organisasjon) String() string {
-	return toString(o)
+func (org Organisasjon) IsEmpty() bool {
+	return reflect.DeepEqual(Organisasjon{}, org)
+}
+
+func (org Organisasjon) String() string {
+	return toString(org)
 }
 
 // OrganizationNode is the model for an organization unit.
@@ -62,6 +78,10 @@ func (on OrganizationNode) Equal(o OrganizationNode) bool {
 	return reflect.DeepEqual(on, o)
 }
 
+func (on OrganizationNode) IsEmpty() bool {
+	return reflect.DeepEqual(OrganizationNode{}, on)
+}
+
 func (on OrganizationNode) String() string {
 	return toString(on)
 }
@@ -73,8 +93,16 @@ type Organisasjonsenheter struct {
 	PageInfo   PageInfo         `json:"pageInfo"   graphql:"pageInfo"`
 }
 
-func (o Organisasjonsenheter) String() string {
-	return toString(o)
+func (oe Organisasjonsenheter) Equal(o Organisasjonsenheter) bool {
+	return reflect.DeepEqual(oe, o)
+}
+
+func (oe Organisasjonsenheter) IsEmpty() bool {
+	return reflect.DeepEqual(Organisasjonsenheter{}, oe)
+}
+
+func (oe Organisasjonsenheter) String() string {
+	return toString(oe)
 }
 
 // OrganisasjonsenheterResponse is the reponse from the organization query.

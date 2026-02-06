@@ -21,6 +21,10 @@ func (f Fakultet) Equal(o Fakultet) bool {
 	return reflect.DeepEqual(f, o)
 }
 
+func (f Fakultet) IsEmpty() bool {
+	return reflect.DeepEqual(Fakultet{}, f)
+}
+
 func (f Fakultet) String() string {
 	return toString(f)
 }
@@ -33,6 +37,14 @@ type AnsattVed struct {
 	Fakultet        Fakultet `json:"fakultet"        graphql:"fakultet"`
 }
 
+func (av AnsattVed) Equal(o AnsattVed) bool {
+	return reflect.DeepEqual(av, o)
+}
+
+func (av AnsattVed) IsEmpty() bool {
+	return reflect.DeepEqual(AnsattVed{}, av)
+}
+
 func (av AnsattVed) String() string {
 	return toString(av)
 }
@@ -42,6 +54,14 @@ type Fagperson struct {
 	ErAktiv   bool      `json:"erAktiv"   graphql:"erAktiv"`
 	AnsattVed AnsattVed `json:"ansattVed" graphql:"ansattVed"`
 	ErEkstern bool      `json:"erEkstern" graphql:"erEkstern"`
+}
+
+func (fp Fagperson) Equal(o Fagperson) bool {
+	return reflect.DeepEqual(fp, o)
+}
+
+func (fp Fagperson) IsEmpty() bool {
+	return reflect.DeepEqual(Fagperson{}, fp)
 }
 
 func (fp Fagperson) String() string {
@@ -56,6 +76,14 @@ type Adresse struct {
 	PostnummerOgSted string `json:"postnummerOgSted" graphql:"postnummerOgSted"`
 }
 
+func (a Adresse) Equal(o Adresse) bool {
+	return reflect.DeepEqual(a, o)
+}
+
+func (a Adresse) IsEmpty() bool {
+	return reflect.DeepEqual(Adresse{}, a)
+}
+
 func (a Adresse) String() string {
 	return toString(a)
 }
@@ -66,6 +94,14 @@ type Navn struct {
 	Fornavn   string `json:"fornavn"   graphql:"fornavn"`
 }
 
+func (n Navn) Equal(o Navn) bool {
+	return reflect.DeepEqual(n, o)
+}
+
+func (n Navn) IsEmpty() bool {
+	return reflect.DeepEqual(Navn{}, n)
+}
+
 func (n Navn) String() string {
 	return toString(n)
 }
@@ -74,6 +110,14 @@ func (n Navn) String() string {
 type Telefon struct {
 	Landnummer string `json:"landnummer" graphql:"landnummer"`
 	Nummer     string `json:"nummer"     graphql:"nummer"`
+}
+
+func (t Telefon) Equal(o Telefon) bool {
+	return reflect.DeepEqual(t, o)
+}
+
+func (t Telefon) IsEmpty() bool {
+	return reflect.DeepEqual(Telefon{}, t)
 }
 
 func (t Telefon) String() string {
@@ -87,6 +131,14 @@ type Morsmaal struct {
 	ISO6392Kode string `json:"iso6392Kode" graphql:"iso6392Kode"`
 }
 
+func (mm Morsmaal) Equal(o Morsmaal) bool {
+	return reflect.DeepEqual(mm, o)
+}
+
+func (mm Morsmaal) IsEmpty() bool {
+	return reflect.DeepEqual(Morsmaal{}, mm)
+}
+
 func (mm Morsmaal) String() string {
 	return toString(mm)
 }
@@ -95,6 +147,14 @@ func (mm Morsmaal) String() string {
 type Pass struct {
 	Passnummer string `json:"passnummer" graphql:"passnummer"`
 	Land       Land   `json:"land"       graphql:"land"`
+}
+
+func (p Pass) Equal(o Pass) bool {
+	return reflect.DeepEqual(p, o)
+}
+
+func (p Pass) IsEmpty() bool {
+	return reflect.DeepEqual(Pass{}, p)
 }
 
 func (p Pass) String() string {
@@ -107,6 +167,14 @@ type Statsborgerskap struct {
 	Land Land   `json:"land" graphql:"land"`
 }
 
+func (sb Statsborgerskap) Equal(o Statsborgerskap) bool {
+	return reflect.DeepEqual(sb, o)
+}
+
+func (sb Statsborgerskap) IsEmpty() bool {
+	return reflect.DeepEqual(Statsborgerskap{}, sb)
+}
+
 func (sb Statsborgerskap) String() string {
 	return toString(sb)
 }
@@ -115,6 +183,14 @@ func (sb Statsborgerskap) String() string {
 type Tittel struct {
 	EN string `json:"en" graphql:"en"`
 	NO string `json:"no" graphql:"no"`
+}
+
+func (t Tittel) Equal(o Tittel) bool {
+	return reflect.DeepEqual(t, o)
+}
+
+func (t Tittel) IsEmpty() bool {
+	return reflect.DeepEqual(Tittel{}, t)
 }
 
 func (t Tittel) String() string {
@@ -146,6 +222,14 @@ type PersonProfil struct {
 	PrivatTelefon          Telefon           `json:"privatTelefon"          graphql:"privatTelefon"`
 }
 
+func (pf PersonProfil) Equal(o PersonProfil) bool {
+	return reflect.DeepEqual(pf, o)
+}
+
+func (pf PersonProfil) IsEmpty() bool {
+	return reflect.DeepEqual(PersonProfil{}, pf)
+}
+
 func (pf PersonProfil) String() string {
 	return toString(pf)
 }
@@ -165,6 +249,14 @@ type FagpersonProfil struct {
 	ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
 	PersonProfil             PersonProfil `json:"personProfil"             graphql:"personProfil"`
 	StillingstittelAlleSprak Tittel       `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
+}
+
+func (fp FagpersonProfil) Equal(o FagpersonProfil) bool {
+	return reflect.DeepEqual(fp, o)
+}
+
+func (fp FagpersonProfil) IsEmpty() bool {
+	return reflect.DeepEqual(FagpersonProfil{}, fp)
 }
 
 func (fp FagpersonProfil) String() string {
@@ -208,6 +300,10 @@ type UgyldigInput struct {
 	Path     []string `json:"path"       graphql:"path"`
 }
 
+func (gi UgyldigInput) IsEmpty() bool {
+	return reflect.DeepEqual(UgyldigInput{}, gi)
+}
+
 func (gi UgyldigInput) String() string {
 	return toString(gi)
 }
@@ -215,6 +311,10 @@ func (gi UgyldigInput) String() string {
 // Errors contains all the error messages or null if the mutation was successful.
 type Errors struct {
 	UgyldigInput UgyldigInput `graphql:"... on UgyldigInput"`
+}
+
+func (e Errors) IsEmpty() bool {
+	return reflect.DeepEqual(Errors{}, e)
 }
 
 func (e Errors) String() string {
@@ -227,6 +327,10 @@ type ErrorMessages struct {
 	Errors Errors `json:"errors" graphql:"errors"`
 }
 
+func (em ErrorMessages) IsEmpty() bool {
+	return reflect.DeepEqual(ErrorMessages{}, em)
+}
+
 func (em ErrorMessages) String() string {
 	return toString(em)
 }
@@ -234,6 +338,10 @@ func (em ErrorMessages) String() string {
 // ResponseErrors is the model where errors are collected if a mutation fails.
 type ResponseErrors struct {
 	Errors []UgyldigInput `json:"errors"`
+}
+
+func (re ResponseErrors) IsEmpty() bool {
+	return reflect.DeepEqual(ResponseErrors{}, re)
 }
 
 func (re ResponseErrors) String() string {

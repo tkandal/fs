@@ -17,3 +17,7 @@ type NavnAlleSprak struct {
 func (n NavnAlleSprak) Equal(o NavnAlleSprak) bool {
 	return reflect.DeepEqual(n, o)
 }
+
+func (n NavnAlleSprak) IsEmpty() bool {
+	return reflect.DeepEqual(NavnAlleSprak{}, n)
+}
