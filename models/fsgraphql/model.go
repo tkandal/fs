@@ -10,45 +10,6 @@ import (
  * Copyright (c) 2026 Norwegian University of Science and Technology, Trondheim, Norway
  */
 
-// Fakultet is the mode for faculty from the FS GraphQL API.
-type Fakultet struct {
-	ID              string `json:"id"              graphql:"id"`
-	Fakultetsnummer string `json:"fakultetsnummer" graphql:"fakultetsnummer"`
-}
-
-// Equal checks if this Fakultet is equal to the given Fakultet.
-func (f Fakultet) Equal(o Fakultet) bool {
-	return reflect.DeepEqual(f, o)
-}
-
-func (f Fakultet) IsEmpty() bool {
-	return reflect.DeepEqual(Fakultet{}, f)
-}
-
-func (f Fakultet) String() string {
-	return toString(f)
-}
-
-// AnsattVed is the model for affiliation from the FS GraphQL API.
-type AnsattVed struct {
-	ID              string   `json:"id"              graphql:"id"`
-	Instituttnummer string   `json:"instituttnummer" graphql:"instituttnummer"`
-	Gruppenummer    string   `json:"gruppenummer"    graphql:"gruppenummer"`
-	Fakultet        Fakultet `json:"fakultet"        graphql:"fakultet"`
-}
-
-func (av AnsattVed) Equal(o AnsattVed) bool {
-	return reflect.DeepEqual(av, o)
-}
-
-func (av AnsattVed) IsEmpty() bool {
-	return reflect.DeepEqual(AnsattVed{}, av)
-}
-
-func (av AnsattVed) String() string {
-	return toString(av)
-}
-
 // Fagperson er the model for faculty staff from the FS GraphQL API.
 type Fagperson struct {
 	ErAktiv   bool      `json:"erAktiv"   graphql:"erAktiv"`
