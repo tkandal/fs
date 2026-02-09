@@ -10,24 +10,6 @@ import (
  * Copyright (c) 2026 Norwegian University of Science and Technology, Trondheim, Norway
  */
 
-// Telefon is model for phone number from the FS GraphQL API.
-type Telefon struct {
-	Landnummer string `json:"landnummer" graphql:"landnummer"`
-	Nummer     string `json:"nummer"     graphql:"nummer"`
-}
-
-func (t Telefon) Equal(o Telefon) bool {
-	return reflect.DeepEqual(t, o)
-}
-
-func (t Telefon) IsEmpty() bool {
-	return reflect.DeepEqual(Telefon{}, t)
-}
-
-func (t Telefon) String() string {
-	return toString(t)
-}
-
 // Morsmaal is the model for native language from the FS GraphQL API.
 type Morsmaal struct {
 	ID          string `json:"id"          graphql:"id"`
