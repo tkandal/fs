@@ -13,6 +13,11 @@ type Fagpersonkategori struct {
 	}
 }
 
+type FagpersonkategoriQuery struct {
+	Nodes    Fagpersonkategori `json:"nodes"    graphql:"nodes"`
+	PageInfo PageInfo          `json:"PageInfo" graphql:"pageInfo"`
+}
+
 type FagpersonkategoriResponse struct {
 	Fagpersonkategorier struct {
 		Nodes []Fagpersonkategori `json:"nodes"`
