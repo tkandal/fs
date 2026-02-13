@@ -36,4 +36,5 @@ type FagpersonkategoriResponse struct {
 	Fagpersonkategorier struct {
 		Nodes []Fagpersonkategori `json:"nodes"`
 	} `json:"fagpersonkategorier"`
+	PageInfo PageInfo `json:"pageInfo"            graphql:"pageInfo"`
 }
