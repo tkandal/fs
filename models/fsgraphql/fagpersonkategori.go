@@ -1,5 +1,7 @@
 package fsgraphql
 
+import "reflect"
+
 /*
  * Copyright (c) 2026 Norwegian University of Science and Technology, Trondheim, Norway
  */
@@ -11,6 +13,18 @@ type Fagpersonkategori struct {
 	NavnAlleSprak struct {
 		UND string `json:"und" graphql:"und"`
 	}
+}
+
+func (fk Fagpersonkategori) Equal(o Fagpersonkategori) bool {
+	return reflect.DeepEqual(fk, o)
+}
+
+func (fk Fagpersonkategori) IsEmpty() bool {
+	return reflect.DeepEqual(Fagpersonkategori{}, fk)
+}
+
+func (fk Fagpersonkategori) String() string {
+	return toString(fk)
 }
 
 type FagpersonkategoriQuery struct {
