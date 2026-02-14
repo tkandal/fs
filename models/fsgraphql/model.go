@@ -86,7 +86,11 @@ func (gi UgyldigInput) String() string {
 
 // Errors contains all the error messages or null if the mutation was successful.
 type Errors struct {
-	UgyldigInput UgyldigInput `graphql:"... on UgyldigInput"`
+	UgyldigInput                       UgyldigInput `graphql:"... on UgyldigInput"`
+	UgyldigFodselsdatoFraFodselsnummer UgyldigInput `graphql:"... on UgyldigFodselsdatoFraFodselsnummer"`
+	UgyldigFodselsnummer               UgyldigInput `graphql:"... on UgyldigFodselsnummer"`
+	UgyldigNorskTelefonnummer          UgyldigInput `graphql:"... on UgyldigNorskTelefonnummer"`
+	FagpersonFinnesForPerson           UgyldigInput `graphql:"... on FagpersonFinnesForPerson"`
 }
 
 func (e Errors) IsEmpty() bool {
