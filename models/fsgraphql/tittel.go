@@ -8,8 +8,8 @@ import "reflect"
 
 // Tittel is a model for title from FS GraphQL API.
 type Tittel struct {
-	EN string `json:"en" graphql:"en"`
-	NO string `json:"no" graphql:"no"`
+	EN string `json:"en,omitempty" graphql:"en"`
+	NO string `json:"no,omitempty" graphql:"no"`
 }
 
 func (t Tittel) Equal(o Tittel) bool {

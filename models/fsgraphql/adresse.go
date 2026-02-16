@@ -10,10 +10,10 @@ import (
 
 // Adresse is model for address from the FS GraphQL API.
 type Adresse struct {
-	Co               string `json:"co"               graphql:"co"`
-	Gate             string `json:"gate"             graphql:"gate"`
-	Land             string `json:"land"             graphql:"land"`
-	PostnummerOgSted string `json:"postnummerOgSted" graphql:"postnummerOgSted"`
+	Co               string `json:"co,omitempty"               graphql:"co"`
+	Gate             string `json:"gate,omitempty"             graphql:"gate"`
+	Land             string `json:"land,omitempty"             graphql:"land"`
+	PostnummerOgSted string `json:"postnummerOgSted,omitempty" graphql:"postnummerOgSted"`
 }
 
 func (a Adresse) Equal(o Adresse) bool {

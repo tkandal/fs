@@ -8,8 +8,8 @@ import "reflect"
 
 // Telefon is model for phone number from the FS GraphQL API.
 type Telefon struct {
-	Landnummer string `json:"landnummer" graphql:"landnummer"`
-	Nummer     string `json:"nummer"     graphql:"nummer"`
+	Landnummer string `json:"landnummer,omitempty" graphql:"landnummer"`
+	Nummer     string `json:"nummer,omitempty"     graphql:"nummer"`
 }
 
 func (t Telefon) Equal(o Telefon) bool {
