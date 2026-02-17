@@ -117,7 +117,7 @@ func (em ErrorMessages) String() string {
 
 // ResponseErrors is the model where errors are collected if a mutation fails.
 type ResponseErrors struct {
-	Errors Errors `json:"errors"`
+	Errors []Errors `json:"errors"`
 }
 
 func (re ResponseErrors) IsEmpty() bool {
