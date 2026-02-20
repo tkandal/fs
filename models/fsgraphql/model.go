@@ -91,6 +91,7 @@ type Errors struct {
 	UgyldigFodselsnummer               UgyldigInput `graphql:"... on UgyldigFodselsnummer"`
 	UgyldigNorskTelefonnummer          UgyldigInput `graphql:"... on UgyldigNorskTelefonnummer"`
 	FagpersonFinnesForPerson           UgyldigInput `graphql:"... on FagpersonFinnesForPerson"`
+	UgyldigPassnummer                  UgyldigInput `graphql:"... on UgyldigPassnummer"`
 }
 
 func (e Errors) IsEmpty() bool {
