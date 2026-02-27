@@ -26,16 +26,30 @@ func (fp Fagperson) String() string {
 	return toString(fp)
 }
 
+type FagpersonNode struct {
+	ErAktiv                  bool         `json:"erAktiv"                  graphql:"erAktiv"`
+	AnsattVed                AnsattVed    `json:"ansattVed"                graphql:"ansattVed"`
+	ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
+	StillingstittelAlleSprak Tittel       `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
+	PersonProfil             PersonProfil `json:"personProfil"             graphql:"personProfil"`
+}
+
+func (fpn FagpersonNode) Equal(o FagpersonNode) bool {
+	return reflect.DeepEqual(fpn, o)
+}
+
+func (fpn FagpersonNode) IsEmpty() bool {
+	return reflect.DeepEqual(FagpersonNode{}, fpn)
+}
+
+func (fpn FagpersonNode) String() string {
+	return toString(fpn)
+}
+
 // Fagpersoner is a model for fuzzy searching faculty staff in FS GrapqhQL API.
 type Fagpersoner struct {
 	Nodes struct {
-		Fagperson struct {
-			ErAktiv                  bool         `json:"erAktiv"                  graphql:"erAktiv"`
-			AnsattVed                AnsattVed    `json:"ansattVed"                graphql:"ansattVed"`
-			ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
-			StillingstittelAlleSprak Tittel       `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
-			PersonProfil             PersonProfil `json:"personProfil" graphql:"personProfil"`
-		} `json:"fagperson" graphql:"fagperson"`
+		Fagperson FagpersonNode `json:"fagperson" graphql:"fagperson"`
 	} `json:"nodes"      graphql:"nodes"`
 	TotalCount int      `json:"totalCount" graphql:"totalCount"`
 	PageInfo   PageInfo `json:"pageInfo"   graphql:"pageInfo"`
@@ -46,13 +60,7 @@ type Fagpersoner struct {
 type FagpersonerResponse struct {
 	PersonProfiler struct {
 		Nodes []struct {
-			Fagperson struct {
-				ErAktiv                  bool         `json:"erAktiv"                  graphql:"erAktiv"`
-				AnsattVed                AnsattVed    `json:"ansattVed"                graphql:"ansattVed"`
-				ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
-				StillingstittelAlleSprak Tittel       `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
-				PersonProfil             PersonProfil `json:"personProfil" graphql:"personProfil"`
-			} `json:"fagperson" graphql:"fagperson"`
+			Fagperson FagpersonNode `json:"fagperson" graphql:"fagperson"`
 		} `json:"nodes"      graphql:"nodes"`
 		TotalCount int      `json:"totalCount" graphql:"totalCount"`
 		PageInfo   PageInfo `json:"pageInfo" graphql:"pageInfo"`
