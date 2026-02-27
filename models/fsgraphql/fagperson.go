@@ -40,7 +40,7 @@ type Fagpersoner struct {
 type FagpersonerResponse struct {
 	PersonProfiler struct {
 		Nodes      []Fagperson `json:"nodes" graphql:"nodes"`
-		TotalCount int         `json:"totalCount"`
-		PageInfo   PageInfo    `json:"pageInfo"`
+		TotalCount int         `json:"totalCount" graphql:"totalCount"`
+		PageInfo   PageInfo    `json:"pageInfo" graphql:"pageInfo"`
 	} `json:"personProfiler" graphql:"personProfiler"`
 }
