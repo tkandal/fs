@@ -55,14 +55,16 @@ type Fagpersoner struct {
 	PageInfo   PageInfo `json:"pageInfo"   graphql:"pageInfo"`
 }
 
+type FagpersonerNode struct {
+	FagpersonNode FagpersonNode `json:"fagperson" graphql:"fagperson"`
+}
+
 // FagpersonerResponse is the model for the response from fuzzy searching
 // faculty staff in FS GrapqhQL API.
 type FagpersonerResponse struct {
 	PersonProfiler struct {
-		Nodes []struct {
-			Fagperson FagpersonNode `json:"fagperson" graphql:"fagperson"`
-		} `json:"nodes"      graphql:"nodes"`
-		TotalCount int      `json:"totalCount" graphql:"totalCount"`
-		PageInfo   PageInfo `json:"pageInfo" graphql:"pageInfo"`
+		Nodes      []FagpersonerNode `json:"nodes" graphql:"nodes"`
+		TotalCount int               `json:"totalCount" graphql:"totalCount"`
+		PageInfo   PageInfo          `json:"pageInfo" graphql:"pageInfo"`
 	} `json:"personProfiler" graphql:"personProfiler"`
 }
