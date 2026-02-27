@@ -37,6 +37,8 @@ type Fagpersoner struct {
 // faculty staff in FS GrapqhQL API.
 type FagpersonerResponse struct {
 	PersonProfiler struct {
-		Nodes []Fagperson `json:"nodes" graphql:"nodes"`
-	}
+		Nodes      []Fagperson `json:"nodes" graphql:"nodes"`
+		TotalCount int         `json:"totalCount"`
+		PageInfo   PageInfo    `json:"pageInfo"`
+	} `json:"personProfiler" graphql:"personProfiler"`
 }
