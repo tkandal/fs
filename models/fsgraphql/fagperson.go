@@ -30,7 +30,9 @@ func (fp Fagperson) String() string {
 type Fagpersoner struct {
 	Nodes struct {
 		Fagperson Fagperson `json:"fagperson" graphql:"fagperson"`
-	} `json:"nodes" graphql:"nodes"`
+	} `json:"nodes"      graphql:"nodes"`
+	TotalCount int      `json:"totalCount" graphql:"totalCount"`
+	PageInfo   PageInfo `json:"pageInfo"   graphql:"pageInfo"`
 }
 
 // FagpersonerResponse is the model for the response from fuzzy searching
