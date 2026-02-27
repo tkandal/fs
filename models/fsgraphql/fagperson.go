@@ -32,3 +32,11 @@ type Fagpersoner struct {
 		Fagperson Fagperson `json:"fagperson" graphql:"fagperson"`
 	} `json:"nodes" graphql:"nodes"`
 }
+
+// FagpersonerResponse is the model for the response from fuzzy searching
+// faculty staff in FS GrapqhQL API.
+type FagpersonerResponse struct {
+	PersonProfiler struct {
+		Nodes []Fagperson `json:"nodes" graphql:"nodes"`
+	}
+}
