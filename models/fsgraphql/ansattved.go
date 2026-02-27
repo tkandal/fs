@@ -9,6 +9,7 @@ import "reflect"
 // AnsattVed is the model for affiliation from the FS GraphQL API.
 type AnsattVed struct {
 	ID              string   `json:"id"              graphql:"id"`
+	ErAktiv         bool     `json:"erAktiv"         graphql:"erAktiv"`
 	Instituttnummer string   `json:"instituttnummer" graphql:"instituttnummer"`
 	Gruppenummer    string   `json:"gruppenummer"    graphql:"gruppenummer"`
 	Fakultet        Fakultet `json:"fakultet"        graphql:"fakultet"`
