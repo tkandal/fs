@@ -8,9 +8,10 @@ import "reflect"
 
 // Fagperson er the model for faculty staff from the FS GraphQL API.
 type Fagperson struct {
-	ErAktiv   bool      `json:"erAktiv"   graphql:"erAktiv"`
-	AnsattVed AnsattVed `json:"ansattVed" graphql:"ansattVed"`
-	ErEkstern bool      `json:"erEkstern" graphql:"erEkstern"`
+	ErAktiv                  bool      `json:"erAktiv"                  graphql:"erAktiv"`
+	AnsattVed                AnsattVed `json:"ansattVed"                graphql:"ansattVed"`
+	ErEkstern                bool      `json:"erEkstern"                graphql:"erEkstern"`
+	StillingstittelAlleSprak Tittel    `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
 }
 
 func (fp Fagperson) Equal(o Fagperson) bool {
@@ -23,4 +24,11 @@ func (fp Fagperson) IsEmpty() bool {
 
 func (fp Fagperson) String() string {
 	return toString(fp)
+}
+
+// Fagpersoner is a model for fuzzy searching faculty staff in FS GrapqhQL API.
+type Fagpersoner struct {
+	Nodes struct {
+		Fagperson Fagperson `json:"fagperson" graphql:"fagperson"`
+	} `json:"nodes" graphql:"nodes"`
 }
