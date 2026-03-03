@@ -28,41 +28,20 @@ func (fp Fagperson) String() string {
 	return toString(fp)
 }
 
-type FagpersonNode struct {
-	ID                       string       `json:"id" graphql:"id"`
-	ErAktiv                  bool         `json:"erAktiv"                  graphql:"erAktiv"`
-	AnsattVed                AnsattVed    `json:"ansattVed"                graphql:"ansattVed"`
-	ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
-	StillingstittelAlleSprak Tittel       `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
-	PersonProfil             PersonProfil `json:"personProfil"             graphql:"personProfil"`
-}
-
-func (fpn FagpersonNode) Equal(o FagpersonNode) bool {
-	return reflect.DeepEqual(fpn, o)
-}
-
-func (fpn FagpersonNode) IsEmpty() bool {
-	return reflect.DeepEqual(FagpersonNode{}, fpn)
-}
-
-func (fpn FagpersonNode) String() string {
-	return toString(fpn)
-}
-
 type PersonNode struct {
-	ID               string        `json:"id" graphql:"id"`
-	FagpersonNode    FagpersonNode `json:"fagperson"        graphql:"fagperson"`
-	Ansattnummer     string        `json:"ansattnummer"     graphql:"ansattnummer"`
-	ArbeidsEpost     string        `json:"arbeidsEpost"     graphql:"arbeidsEpost"`
-	Personlopenummer string        `json:"personlopenummer" graphql:"personlopenummer"`
-	Fodselsnummer    string        `json:"fodselsnummer"    graphql:"fodselsnummer"`
-	Kjonn            string        `json:"kjonn"            graphql:"kjonn"`
-	Navn             Navn          `json:"navn"                      graphql:"navn"`
-	FeideBruker      string        `json:"feideBruker"           graphql:"feideBruker"`
-	Fodselsdato      string        `json:"fodselsdato"         graphql:"fodselsdato"`
-	PrivatEpost      string        `json:"privateEpost"        graphql:"privateEpost"`
-	ArbeidsTelefon   Telefon       `json:"arbeidsTelefon" graphql:"arbeidsTelefon"`
-	MobilTelefon     Telefon       `json:"mobilTelefon"         graphql:"mobilTelefon"`
+	ID               string    `json:"id" graphql:"id"`
+	Fagperson        Fagperson `json:"fagperson"        graphql:"fagperson"`
+	Ansattnummer     string    `json:"ansattnummer"     graphql:"ansattnummer"`
+	ArbeidsEpost     string    `json:"arbeidsEpost"     graphql:"arbeidsEpost"`
+	Personlopenummer string    `json:"personlopenummer" graphql:"personlopenummer"`
+	Fodselsnummer    string    `json:"fodselsnummer"    graphql:"fodselsnummer"`
+	Kjonn            string    `json:"kjonn"            graphql:"kjonn"`
+	Navn             Navn      `json:"navn"                      graphql:"navn"`
+	FeideBruker      string    `json:"feideBruker"           graphql:"feideBruker"`
+	Fodselsdato      string    `json:"fodselsdato"         graphql:"fodselsdato"`
+	PrivatEpost      string    `json:"privateEpost"        graphql:"privateEpost"`
+	ArbeidsTelefon   Telefon   `json:"arbeidsTelefon" graphql:"arbeidsTelefon"`
+	MobilTelefon     Telefon   `json:"mobilTelefon"         graphql:"mobilTelefon"`
 }
 
 func (n PersonNode) String() string {
