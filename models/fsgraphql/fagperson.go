@@ -10,10 +10,10 @@ import (
 
 // Fagperson er the model for faculty staff from the FS GraphQL API.
 type Fagperson struct {
-	ErAktiv                  bool      `json:"erAktiv"                  graphql:"erAktiv"`
-	AnsattVed                AnsattVed `json:"ansattVed"                graphql:"ansattVed"`
-	ErEkstern                bool      `json:"erEkstern"                graphql:"erEkstern"`
-	StillingstittelAlleSprak Tittel    `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
+	ErAktiv   bool      `json:"erAktiv"                  graphql:"erAktiv"`
+	AnsattVed AnsattVed `json:"ansattVed"                graphql:"ansattVed"`
+	// ErEkstern                bool      `json:"erEkstern"                graphql:"erEkstern"`
+	StillingstittelAlleSprak Tittel `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
 }
 
 // Equal checks if this Fagperson is equal to the given Fagperson.
@@ -31,18 +31,19 @@ func (fp Fagperson) String() string {
 }
 
 type PersonNode struct {
-	Ansattnummer     string  `json:"ansattnummer" graphql:"ansattnummer"`
-	ArbeidsEpost     string  `json:"arbeidsEpost" graphql:"arbeidsEpost"`
-	FeideBruker      string  `json:"feideBruker" graphql:"feideBruker"`
-	Fodselsdato      string  `json:"fodselsdato" graphql:"fodselsdato"`
-	Fodselsnummer    string  `json:"fodselsnummer" graphql:"fodselsnummer"`
-	PrivatEpost      string  `json:"privatEpost" graphql:"privatEpost"`
-	Kjonn            string  `json:"kjonn" graphql:"kjonn"`
-	ID               string  `json:"id" graphql:"id"`
-	MobilTelefon     Telefon `json:"mobilTelefon" graphql:"mobilTelefon"`
-	Navn             Navn    `json:"navn" graphql:"navn"`
-	Personlopenummer string  `json:"personlopenummer" graphql:"personlopenummer"`
-	ArbeidsTelefon   Telefon `json:"arbeidsTelefon" graphql:"arbeidsTelefon"`
+	Ansattnummer     string    `json:"ansattnummer" graphql:"ansattnummer"`
+	ArbeidsEpost     string    `json:"arbeidsEpost" graphql:"arbeidsEpost"`
+	FeideBruker      string    `json:"feideBruker" graphql:"feideBruker"`
+	Fodselsdato      string    `json:"fodselsdato" graphql:"fodselsdato"`
+	Fodselsnummer    string    `json:"fodselsnummer" graphql:"fodselsnummer"`
+	PrivatEpost      string    `json:"privatEpost" graphql:"privatEpost"`
+	Kjonn            string    `json:"kjonn" graphql:"kjonn"`
+	Fagperson        Fagperson `json:"fagperson" graphql:"fagperson"`
+	ID               string    `json:"id" graphql:"id"`
+	MobilTelefon     Telefon   `json:"mobilTelefon" graphql:"mobilTelefon"`
+	Navn             Navn      `json:"navn" graphql:"navn"`
+	Personlopenummer string    `json:"personlopenummer" graphql:"personlopenummer"`
+	ArbeidsTelefon   Telefon   `json:"arbeidsTelefon" graphql:"arbeidsTelefon"`
 }
 
 // Equal checks if this PersonNode is equal to the given PersonNode.
