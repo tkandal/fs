@@ -29,19 +29,18 @@ func (fp Fagperson) String() string {
 }
 
 type PersonNode struct {
-	ID               string    `json:"id" graphql:"id"`
-	Fagperson        Fagperson `json:"fagperson"        graphql:"fagperson"`
-	Ansattnummer     string    `json:"ansattnummer"     graphql:"ansattnummer"`
-	ArbeidsEpost     string    `json:"arbeidsEpost"     graphql:"arbeidsEpost"`
-	Personlopenummer string    `json:"personlopenummer" graphql:"personlopenummer"`
-	Fodselsnummer    string    `json:"fodselsnummer"    graphql:"fodselsnummer"`
-	Kjonn            string    `json:"kjonn"            graphql:"kjonn"`
-	Navn             Navn      `json:"navn"                      graphql:"navn"`
-	FeideBruker      string    `json:"feideBruker"           graphql:"feideBruker"`
-	Fodselsdato      string    `json:"fodselsdato"         graphql:"fodselsdato"`
-	PrivatEpost      string    `json:"privateEpost"        graphql:"privateEpost"`
-	ArbeidsTelefon   Telefon   `json:"arbeidsTelefon" graphql:"arbeidsTelefon"`
-	MobilTelefon     Telefon   `json:"mobilTelefon"         graphql:"mobilTelefon"`
+	ID               string  `json:"id" graphql:"id"`
+	Ansattnummer     string  `json:"ansattnummer"     graphql:"ansattnummer"`
+	ArbeidsEpost     string  `json:"arbeidsEpost"     graphql:"arbeidsEpost"`
+	Personlopenummer string  `json:"personlopenummer" graphql:"personlopenummer"`
+	Fodselsnummer    string  `json:"fodselsnummer"    graphql:"fodselsnummer"`
+	Kjonn            string  `json:"kjonn"            graphql:"kjonn"`
+	Navn             Navn    `json:"navn"                      graphql:"navn"`
+	FeideBruker      string  `json:"feideBruker"           graphql:"feideBruker"`
+	Fodselsdato      string  `json:"fodselsdato"         graphql:"fodselsdato"`
+	PrivatEpost      string  `json:"privateEpost"        graphql:"privateEpost"`
+	ArbeidsTelefon   Telefon `json:"arbeidsTelefon" graphql:"arbeidsTelefon"`
+	MobilTelefon     Telefon `json:"mobilTelefon"         graphql:"mobilTelefon"`
 }
 
 func (n PersonNode) String() string {
