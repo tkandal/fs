@@ -1,6 +1,10 @@
 package fsgraphql
 
-import "reflect"
+import (
+	"bytes"
+	"encoding/json"
+	"reflect"
+)
 
 /*
  * Copyright (c) 2026 Norwegian University of Science and Technology, Trondheim, Norway
@@ -77,4 +81,12 @@ type FagpersonerResponse struct {
 		TotalCount int               `json:"totalCount" graphql:"totalCount"`
 		PageInfo   PageInfo          `json:"pageInfo" graphql:"pageInfo"`
 	} `json:"personProfiler" graphql:"personProfiler"`
+}
+
+func (fpr FagpersonerResponse) String() string {
+	buf := &bytes.Buffer{}
+	if err := json.NewEncoder(buf).Encode(fpr); err != nil {
+		return ""
+	}
+	return buf.String()
 }
