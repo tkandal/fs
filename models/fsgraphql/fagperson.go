@@ -29,6 +29,7 @@ func (fp Fagperson) String() string {
 }
 
 type FagpersonNode struct {
+	ID                       string       `json:"id" graphql:"id"`
 	ErAktiv                  bool         `json:"erAktiv"                  graphql:"erAktiv"`
 	AnsattVed                AnsattVed    `json:"ansattVed"                graphql:"ansattVed"`
 	ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
