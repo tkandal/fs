@@ -49,7 +49,7 @@ func (fpn FagpersonNode) String() string {
 	return toString(fpn)
 }
 
-type Node struct {
+type PersonNode struct {
 	ID               string        `json:"id" graphql:"id"`
 	FagpersonNode    FagpersonNode `json:"fagperson"        graphql:"fagperson"`
 	Ansattnummer     string        `json:"ansattnummer"     graphql:"ansattnummer"`
@@ -61,17 +61,19 @@ type Node struct {
 	FeideBruker      string        `json:"feideBruker"           graphql:"feideBruker"`
 	Fodselsdato      string        `json:"fodselsdato"         graphql:"fodselsdato"`
 	PrivatEpost      string        `json:"privateEpost"        graphql:"privateEpost"`
+	ArbeidsTelefon   Telefon       `json:"arbeidsTelefon" graphql:"arbeidsTelefon"`
+	MobilTelefon     Telefon       `json:"mobilTelefon"         graphql:"mobilTelefon"`
 }
 
-func (n Node) String() string {
+func (n PersonNode) String() string {
 	return toString(n)
 }
 
 // Fagpersoner is a model for fuzzy searching faculty staff in FS GrapqhQL API.
 type Fagpersoner struct {
-	Nodes      Node     `json:"nodes"      graphql:"nodes"`
-	TotalCount int      `json:"totalCount" graphql:"totalCount"`
-	PageInfo   PageInfo `json:"pageInfo"   graphql:"pageInfo"`
+	Nodes      PersonNode `json:"nodes"      graphql:"nodes"`
+	TotalCount int        `json:"totalCount" graphql:"totalCount"`
+	PageInfo   PageInfo   `json:"pageInfo"   graphql:"pageInfo"`
 }
 
 func (fp Fagpersoner) String() string {
@@ -79,9 +81,9 @@ func (fp Fagpersoner) String() string {
 }
 
 type PersonProfiler struct {
-	Nodes      []Node   `json:"nodes"`
-	TotalCount int      `json:"totalCount"`
-	PageInfo   PageInfo `json:"pageInfo"`
+	Nodes      []PersonNode `json:"nodes"`
+	TotalCount int          `json:"totalCount"`
+	PageInfo   PageInfo     `json:"pageInfo"`
 }
 
 func (pp PersonProfiler) String() string {
