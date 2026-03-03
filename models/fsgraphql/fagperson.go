@@ -1,8 +1,6 @@
 package fsgraphql
 
 import (
-	"bytes"
-	"encoding/json"
 	"reflect"
 )
 
@@ -64,6 +62,10 @@ type Fagpersoner struct {
 	PageInfo   PageInfo `json:"pageInfo"   graphql:"pageInfo"`
 }
 
+func (fp Fagpersoner) String() string {
+	return toString(fp)
+}
+
 type FagpersonerNode struct {
 	FagpersonNode    FagpersonNode `json:"fagperson"        graphql:"fagperson"`
 	Ansattnummer     string        `json:"ansattnummer"     graphql:"ansattnummer"`
@@ -71,6 +73,10 @@ type FagpersonerNode struct {
 	Personlopenummer string        `json:"personlopenummer" graphql:"personlopenummer"`
 	Fodselsnummer    string        `json:"fodselsnummer"    graphql:"fodselsnummer"`
 	Kjonn            string        `json:"kjonn"            graphql:"kjonn"`
+}
+
+func (fpn FagpersonerNode) String() string {
+	return toString(fpn)
 }
 
 // FagpersonerResponse is the model for the response from fuzzy searching
@@ -84,9 +90,5 @@ type FagpersonerResponse struct {
 }
 
 func (fpr FagpersonerResponse) String() string {
-	buf := &bytes.Buffer{}
-	if err := json.NewEncoder(buf).Encode(fpr); err != nil {
-		return ""
-	}
-	return buf.String()
+	return toString(fpr)
 }
