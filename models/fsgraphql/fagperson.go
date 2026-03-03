@@ -16,10 +16,12 @@ type Fagperson struct {
 	StillingstittelAlleSprak Tittel    `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
 }
 
+// Equal checks if this Fagperson is equal to the given Fagperson.
 func (fp Fagperson) Equal(o Fagperson) bool {
 	return reflect.DeepEqual(fp, o)
 }
 
+// IsEmpty checks if this Fagperson is empty.
 func (fp Fagperson) IsEmpty() bool {
 	return reflect.DeepEqual(Fagperson{}, fp)
 }
@@ -43,6 +45,16 @@ type PersonNode struct {
 	ArbeidsTelefon   Telefon `json:"arbeidsTelefon" graphql:"arbeidsTelefon"`
 }
 
+// Equal checks if this PersonNode is equal to the given PersonNode.
+func (pn PersonNode) Equal(o PersonNode) bool {
+	return reflect.DeepEqual(pn, o)
+}
+
+// IsEmpty checks if this PersonNode is empty.
+func (pn PersonNode) IsEmpty() bool {
+	return reflect.DeepEqual(pn, PersonNode{})
+}
+
 func (n PersonNode) String() string {
 	return toString(n)
 }
@@ -52,6 +64,11 @@ type Fagpersoner struct {
 	Nodes      PersonNode `json:"nodes"      graphql:"nodes"`
 	TotalCount int        `json:"totalCount" graphql:"totalCount"`
 	PageInfo   PageInfo   `json:"pageInfo"   graphql:"pageInfo"`
+}
+
+// Equal checks if this Fagpersoner is equal to the given Fagpersoner.
+func (fp Fagpersoner) Equal(o Fagperson) bool {
+	return reflect.DeepEqual(fp, o)
 }
 
 func (fp Fagpersoner) String() string {
@@ -64,16 +81,36 @@ type PersonProfiler struct {
 	PageInfo   PageInfo     `json:"pageInfo"`
 }
 
+// Equal checks if this PersonProfiler is equal to the given PersonProfiler.
+func (pp PersonProfiler) Equal(o PersonProfiler) bool {
+	return reflect.DeepEqual(pp, o)
+}
+
+// IsEmpty checks of the PersonProfiler is empty.
+func (pp PersonProfiler) IsEmpty() bool {
+	return reflect.DeepEqual(pp, PersonProfiler{})
+}
+
 func (pp PersonProfiler) String() string {
 	return toString(pp)
 }
 
 // FagpersonerResponse is the model for the response from fuzzy searching
-// faculty staff in FS GrapqhQL API.
+// persons in FS GrapqhQL API.
 type FagpersonerResponse struct {
 	PersonProfiler PersonProfiler `json:"personProfiler" graphql:"personProfiler"`
 }
 
-func (fp FagpersonerResponse) String() string {
-	return toString(fp)
+// Equal checks if this FagpersonerResponse is equal to the given FagpersonerResponse.
+func (fpr FagpersonerResponse) Equal(o FagpersonerResponse) bool {
+	return reflect.DeepEqual(fpr, o)
+}
+
+// IsEmpty checks if this FagpersonerResponse is empty.
+func (fpr FagpersonerResponse) IsEmpty() bool {
+	return reflect.DeepEqual(fpr, FagpersonerResponse{})
+}
+
+func (fpr FagpersonerResponse) String() string {
+	return toString(fpr)
 }
