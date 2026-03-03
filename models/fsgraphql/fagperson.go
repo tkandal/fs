@@ -53,6 +53,8 @@ type Fagpersoner struct {
 		Ansattnummer     string        `json:"ansattnummer" graphql:"ansattnummer"`
 		ArbeidsEpost     string        `json:"arbeidsEpost" graphql:"arbeidsEpost"`
 		Personlopenummer string        `json:"personlopenummer" graphql:"personlopenummer"`
+		Fodselsnummer    string        `json:"fodselsnummer"    graphql:"fodselsnummer"`
+		Kjonn            string        `json:"kjonn" graphql:"kjonn"`
 	} `json:"nodes"      graphql:"nodes"`
 	TotalCount int      `json:"totalCount" graphql:"totalCount"`
 	PageInfo   PageInfo `json:"pageInfo"   graphql:"pageInfo"`
@@ -63,6 +65,8 @@ type FagpersonerNode struct {
 	Ansattnummer     string        `json:"ansattnummer"     graphql:"ansattnummer"`
 	ArbeidsEpost     string        `json:"arbeidsEpost"     graphql:"arbeidsEpost"`
 	Personlopenummer string        `json:"personlopenummer" graphql:"personlopenummer"`
+	Fodselsnummer    string        `json:"fodselsnummer"    graphql:"fodselsnummer"`
+	Kjonn            string        `json:"kjonn"            graphql:"kjonn"`
 }
 
 // FagpersonerResponse is the model for the response from fuzzy searching
