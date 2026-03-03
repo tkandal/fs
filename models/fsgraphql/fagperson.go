@@ -34,6 +34,7 @@ type FagpersonNode struct {
 	ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
 	StillingstittelAlleSprak Tittel       `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
 	PersonProfil             PersonProfil `json:"personProfil"             graphql:"personProfil"`
+	Navn                     Navn         `json:"navn"                      graphql:"navn"`
 }
 
 func (fpn FagpersonNode) Equal(o FagpersonNode) bool {
@@ -50,14 +51,7 @@ func (fpn FagpersonNode) String() string {
 
 // Fagpersoner is a model for fuzzy searching faculty staff in FS GrapqhQL API.
 type Fagpersoner struct {
-	Nodes struct {
-		Fagperson        FagpersonNode `json:"fagperson" graphql:"fagperson"`
-		Ansattnummer     string        `json:"ansattnummer" graphql:"ansattnummer"`
-		ArbeidsEpost     string        `json:"arbeidsEpost" graphql:"arbeidsEpost"`
-		Personlopenummer string        `json:"personlopenummer" graphql:"personlopenummer"`
-		Fodselsnummer    string        `json:"fodselsnummer"    graphql:"fodselsnummer"`
-		Kjonn            string        `json:"kjonn" graphql:"kjonn"`
-	} `json:"nodes"      graphql:"nodes"`
+	Nodes      Node     `json:"nodes"      graphql:"nodes"`
 	TotalCount int      `json:"totalCount" graphql:"totalCount"`
 	PageInfo   PageInfo `json:"pageInfo"   graphql:"pageInfo"`
 }
@@ -66,7 +60,7 @@ func (fp Fagpersoner) String() string {
 	return toString(fp)
 }
 
-type FagpersonerNode struct {
+type Node struct {
 	FagpersonNode    FagpersonNode `json:"fagperson"        graphql:"fagperson"`
 	Ansattnummer     string        `json:"ansattnummer"     graphql:"ansattnummer"`
 	ArbeidsEpost     string        `json:"arbeidsEpost"     graphql:"arbeidsEpost"`
@@ -75,20 +69,18 @@ type FagpersonerNode struct {
 	Kjonn            string        `json:"kjonn"            graphql:"kjonn"`
 }
 
-func (fpn FagpersonerNode) String() string {
-	return toString(fpn)
+func (n Node) String() string {
+	return toString(n)
+}
+
+type PersonProfiler struct {
+	Nodes      []Node   `json:"nodes"`
+	TotalCount int      `json:"totalCount"`
+	PageInfo   PageInfo `json:"pageInfo"`
 }
 
 // FagpersonerResponse is the model for the response from fuzzy searching
 // faculty staff in FS GrapqhQL API.
 type FagpersonerResponse struct {
-	PersonProfiler struct {
-		Nodes      []FagpersonerNode `json:"nodes" graphql:"nodes"`
-		TotalCount int               `json:"totalCount" graphql:"totalCount"`
-		PageInfo   PageInfo          `json:"pageInfo" graphql:"pageInfo"`
-	} `json:"personProfiler" graphql:"personProfiler"`
-}
-
-func (fpr FagpersonerResponse) String() string {
-	return toString(fpr)
+	PersonProfiler PersonProfiler `json:"personProfiler" graphql:"personProfiler"`
 }
