@@ -35,7 +35,6 @@ type FagpersonNode struct {
 	ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
 	StillingstittelAlleSprak Tittel       `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
 	PersonProfil             PersonProfil `json:"personProfil"             graphql:"personProfil"`
-	Navn                     Navn         `json:"navn"                      graphql:"navn"`
 }
 
 func (fpn FagpersonNode) Equal(o FagpersonNode) bool {
@@ -51,12 +50,17 @@ func (fpn FagpersonNode) String() string {
 }
 
 type Node struct {
+	ID               string        `json:"id" graphql:"id"`
 	FagpersonNode    FagpersonNode `json:"fagperson"        graphql:"fagperson"`
 	Ansattnummer     string        `json:"ansattnummer"     graphql:"ansattnummer"`
 	ArbeidsEpost     string        `json:"arbeidsEpost"     graphql:"arbeidsEpost"`
 	Personlopenummer string        `json:"personlopenummer" graphql:"personlopenummer"`
 	Fodselsnummer    string        `json:"fodselsnummer"    graphql:"fodselsnummer"`
 	Kjonn            string        `json:"kjonn"            graphql:"kjonn"`
+	Navn             Navn          `json:"navn"                      graphql:"navn"`
+	FeideBruker      string        `json:"feideBruker"           graphql:"feideBruker"`
+	Fodselsdato      string        `json:"fodselsdato"         graphql:"fodselsdato"`
+	PrivatEpost      string        `json:"privateEpost"        graphql:"privateEpost"`
 }
 
 func (n Node) String() string {
