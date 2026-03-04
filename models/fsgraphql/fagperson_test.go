@@ -26,7 +26,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Fagperson2: Fagperson{
 				ErAktiv: true,
@@ -39,7 +38,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Expected: true,
 		},
@@ -56,7 +54,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: false,
 			},
 			Fagperson2: Fagperson{
 				ErAktiv: false,
@@ -69,7 +66,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: false,
 			},
 			Expected: false,
 		},
@@ -86,7 +82,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Fagperson2: Fagperson{
 				ErAktiv: true,
@@ -99,7 +94,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Expected: false,
 		},
@@ -116,7 +110,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Fagperson2: Fagperson{
 				ErAktiv: true,
@@ -129,7 +122,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Expected: false,
 		},
@@ -146,7 +138,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Fagperson2: Fagperson{
 				ErAktiv: true,
@@ -159,7 +150,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Expected: false,
 		},
@@ -176,7 +166,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Fagperson2: Fagperson{
 				ErAktiv: true,
@@ -189,7 +178,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Expected: false,
 		},
@@ -206,7 +194,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "67",
 					},
 				},
-				ErEkstern: true,
 			},
 			Fagperson2: Fagperson{
 				ErAktiv: true,
@@ -219,37 +206,6 @@ func TestEqualFagperson(t *testing.T) {
 						Fakultetsnummer: "68",
 					},
 				},
-				ErEkstern: true,
-			},
-			Expected: false,
-		},
-		{
-			Name: "erekstern is not equal",
-			Fagperson1: Fagperson{
-				ErAktiv: true,
-				AnsattVed: AnsattVed{
-					ID:              "some_id",
-					Instituttnummer: "12",
-					Gruppenummer:    "0",
-					Fakultet: Fakultet{
-						ID:              "fak_id",
-						Fakultetsnummer: "67",
-					},
-				},
-				ErEkstern: true,
-			},
-			Fagperson2: Fagperson{
-				ErAktiv: true,
-				AnsattVed: AnsattVed{
-					ID:              "some_id",
-					Instituttnummer: "12",
-					Gruppenummer:    "0",
-					Fakultet: Fakultet{
-						ID:              "fak_id",
-						Fakultetsnummer: "67",
-					},
-				},
-				ErEkstern: false,
 			},
 			Expected: false,
 		},
@@ -328,13 +284,6 @@ func TestEmptyFagperson(t *testing.T) {
 						Fakultetsnummer: "56",
 					},
 				},
-			},
-			Expected: false,
-		},
-		{
-			Name: "erekstern is not empty",
-			Fagperson: Fagperson{
-				ErEkstern: true,
 			},
 			Expected: false,
 		},

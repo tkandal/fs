@@ -53,7 +53,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",
@@ -110,7 +109,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",
@@ -171,7 +169,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",
@@ -228,7 +225,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",
@@ -289,7 +285,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",
@@ -346,7 +341,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",
@@ -407,7 +401,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",
@@ -464,7 +457,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+48",
@@ -525,7 +517,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",
@@ -582,7 +573,6 @@ func TestEqualPersonProfil(t *testing.T) {
 							Fakultetsnummer: "63",
 						},
 					},
-					ErEkstern: true,
 				},
 				ArbeidsTelefon: Telefon{
 					Landnummer: "+47",

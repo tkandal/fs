@@ -30,36 +30,6 @@ func (fp Fagperson) String() string {
 	return toString(fp)
 }
 
-type PersonNode struct {
-	Ansattnummer     string    `json:"ansattnummer"     graphql:"ansattnummer"`
-	ArbeidsEpost     string    `json:"arbeidsEpost"     graphql:"arbeidsEpost"`
-	FeideBruker      string    `json:"feideBruker"      graphql:"feideBruker"`
-	Fodselsdato      string    `json:"fodselsdato"      graphql:"fodselsdato"`
-	Fodselsnummer    string    `json:"fodselsnummer"    graphql:"fodselsnummer"`
-	PrivatEpost      string    `json:"privatEpost"      graphql:"privatEpost"`
-	Kjonn            string    `json:"kjonn"            graphql:"kjonn"`
-	Fagperson        Fagperson `json:"fagperson"        graphql:"fagperson"`
-	ID               string    `json:"id"               graphql:"id"`
-	MobilTelefon     Telefon   `json:"mobilTelefon"     graphql:"mobilTelefon"`
-	Navn             Navn      `json:"navn"             graphql:"navn"`
-	Personlopenummer string    `json:"personlopenummer" graphql:"personlopenummer"`
-	ArbeidsTelefon   Telefon   `json:"arbeidsTelefon"   graphql:"arbeidsTelefon"`
-}
-
-// Equal checks if this PersonNode is equal to the given PersonNode.
-func (pn PersonNode) Equal(o PersonNode) bool {
-	return reflect.DeepEqual(pn, o)
-}
-
-// IsEmpty checks if this PersonNode is empty.
-func (pn PersonNode) IsEmpty() bool {
-	return reflect.DeepEqual(pn, PersonNode{})
-}
-
-func (n PersonNode) String() string {
-	return toString(n)
-}
-
 // Fagpersoner is a model for fuzzy searching faculty staff in FS GrapqhQL API.
 type Fagpersoner struct {
 	Nodes      PersonProfil `json:"nodes"      graphql:"nodes"`
@@ -76,6 +46,7 @@ func (fp Fagpersoner) String() string {
 	return toString(fp)
 }
 
+// PersonProfiler is a model that has all PersonProfiler that was found by fuzzy search.
 type PersonProfiler struct {
 	Nodes      []PersonProfil `json:"nodes"`
 	TotalCount int            `json:"totalCount"`
