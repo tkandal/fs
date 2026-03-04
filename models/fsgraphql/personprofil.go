@@ -8,10 +8,10 @@ import "reflect"
 
 // PersonProfil is the model for a person from FS GraphQL API.
 type PersonProfil struct {
-	ID                     string            `json:"id"                     graphql:"id"`
-	Ansattnummer           string            `json:"ansattnummer"           graphql:"ansattnummer"`
-	ArbeidsEpost           string            `json:"arbeidsEpost"           graphql:"arbeidsEpost"`
-	Fagperson              Fagperson         `json:"fagperson"              graphql:"fagperson"`
+	ID           string `json:"id"           graphql:"id"`
+	Ansattnummer string `json:"ansattnummer" graphql:"ansattnummer"`
+	ArbeidsEpost string `json:"arbeidsEpost" graphql:"arbeidsEpost"`
+	// Fagperson              Fagperson         `json:"fagperson"              graphql:"fagperson"`
 	ArbeidsTelefon         Telefon           `json:"arbeidsTelefon"         graphql:"arbeidsTelefon"`
 	FeideBruker            string            `json:"feideBruker"            graphql:"feideBruker"`
 	Fodselsdato            string            `json:"fodselsdato"            graphql:"fodselsdato"`
