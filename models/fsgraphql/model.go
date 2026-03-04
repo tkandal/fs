@@ -138,25 +138,30 @@ func (tr TelefonResponse) String() string {
 	return toString(tr)
 }
 
-type FagpersonerGittFodselsnumreResult struct {
-	FagpersonProfil PersonProfil `json:"personProfil"`
+type AddPersonerResponse struct {
+	PersonProfil []PersonProfil `json:"personProfil"`
 }
 
 // FagpersonerGittFodselsnumreResponse is the model for the response which is
 // received when creating a new person by NIN.
 type FagpersonerGittFodselsnumreResponse struct {
-	OpprettFagpersonerGittFodselsnumre ResponseErrors                    `json:"opprettFagpersonerGittFodselsnumre"`
-	Result                             FagpersonerGittFodselsnumreResult `json:"result"`
+	OpprettFagpersonerGittFodselsnumre ResponseErrors      `json:"opprettFagpersonerGittFodselsnumre"`
+	Result                             AddPersonerResponse `json:"result"`
 }
 
 func (ff FagpersonerGittFodselsnumreResponse) String() string {
 	return toString(ff)
 }
 
+type AddPersonResponse struct {
+	PersonProfil []PersonProfil `json:"person"`
+}
+
 // OpprettPersonProfilerUtenFodselsnummerResponse is the model for the response which is
 // received when creating a new person.
 type OpprettPersonProfilerUtenFodselsnummerResponse struct {
-	OpprettPersonProfilerUtenFodselsnummer ResponseErrors `json:"opprettPersonProfilerUtenFodselsnummer"`
+	OpprettPersonProfilerUtenFodselsnummer ResponseErrors    `json:"opprettPersonProfilerUtenFodselsnummer"`
+	AddPersonResponse                      AddPersonResponse `json:"resultat"`
 }
 
 func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
@@ -166,7 +171,8 @@ func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
 // OpprettFagpersonerGittPassResponse is model for the response which is received when
 // creating a new person by passort.
 type OpprettFagpersonerGittPassResponse struct {
-	OpprettFagpersonerGittPass ResponseErrors `json:"opprettFagpersonerGittPass"`
+	OpprettFagpersonerGittPass ResponseErrors      `json:"opprettFagpersonerGittPass"`
+	Result                     AddPersonerResponse `json:"result"`
 }
 
 func (fp OpprettFagpersonerGittPassResponse) String() string {
