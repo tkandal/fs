@@ -138,10 +138,15 @@ func (tr TelefonResponse) String() string {
 	return toString(tr)
 }
 
+type FagpersonerGittFodselsnumreResult struct {
+	FagpersonProfil PersonProfil `json:"personProfil"`
+}
+
 // FagpersonerGittFodselsnumreResponse is the model for the response which is
 // received when creating a new person by NIN.
 type FagpersonerGittFodselsnumreResponse struct {
-	OpprettFagpersonerGittFodselsnumre ResponseErrors `json:"opprettFagpersonerGittFodselsnumre"`
+	OpprettFagpersonerGittFodselsnumre ResponseErrors                    `json:"opprettFagpersonerGittFodselsnumre"`
+	Result                             FagpersonerGittFodselsnumreResult `json:"result"`
 }
 
 func (ff FagpersonerGittFodselsnumreResponse) String() string {
