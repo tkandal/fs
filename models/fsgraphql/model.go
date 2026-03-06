@@ -139,8 +139,10 @@ func (tr TelefonResponse) String() string {
 }
 
 type AddPersonRequest struct {
-	Errors       Errors       `json:"errors"`
-	PersonProfil PersonProfil `json:"personProfil"`
+	Errors Errors `json:"errors"`
+	Result struct {
+		Person PersonProfil `json:"person"`
+	} `json:"result"`
 }
 
 type AddPersonerResponse struct {
@@ -159,8 +161,10 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 }
 
 type AddPersonWithoutNINRequest struct {
-	Errors       Errors       `json:"errors"`
-	PersonProfil PersonProfil `json:"person"`
+	Errors   Errors `json:"errors"`
+	Resultat struct {
+		Person PersonProfil `json:"person"`
+	} `json:"resultat"`
 }
 type AddPersonWithoutNINResponse struct {
 	PersonProfil []PersonProfil `json:"person"`
