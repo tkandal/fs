@@ -158,15 +158,19 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 	return toString(ff)
 }
 
-type AddPersonResponse struct {
+type AddPersonWithoutNINRequest struct {
+	Errors       Errors       `json:"errors"`
+	PersonProfil PersonProfil `json:"person"`
+}
+type AddPersonWithoutNINResponse struct {
 	PersonProfil []PersonProfil `json:"person"`
 }
 
 // OpprettPersonProfilerUtenFodselsnummerResponse is the model for the response which is
 // received when creating a new person.
 type OpprettPersonProfilerUtenFodselsnummerResponse struct {
-	OpprettPersonProfilerUtenFodselsnummer ResponseErrors    `json:"opprettPersonProfilerUtenFodselsnummer"`
-	AddPersonResponse                      AddPersonResponse `json:"resultat"`
+	OpprettPersonProfilerUtenFodselsnummer ResponseErrors              `json:"opprettPersonProfilerUtenFodselsnummer"`
+	AddPersonResponse                      AddPersonWithoutNINResponse `json:"resultat"`
 }
 
 func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
