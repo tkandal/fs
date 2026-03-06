@@ -138,6 +138,11 @@ func (tr TelefonResponse) String() string {
 	return toString(tr)
 }
 
+type AddPersonRequest struct {
+	Errors       Errors       `json:"errors"`
+	PersonProfil PersonProfil `json:"personProfil"`
+}
+
 type AddPersonerResponse struct {
 	PersonProfil []PersonProfil `json:"personProfil"`
 }
