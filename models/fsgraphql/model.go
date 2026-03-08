@@ -148,6 +148,19 @@ type Person struct {
 	Maalform      string `json:"maalform"`
 	Navn          Navn   `json:"navn"`
 }
+
+func (pr Person) IsEmpty() bool {
+	return reflect.DeepEqual(pr, Person{})
+}
+
+func (pr Person) Equal(o Person) bool {
+	return reflect.DeepEqual(pr, o)
+}
+
+func (pr Person) String() string {
+	return toString(pr)
+}
+
 type AddPersonRequest struct {
 	Errors Errors `json:"errors"`
 	Result struct {
