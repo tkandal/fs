@@ -138,15 +138,25 @@ func (tr TelefonResponse) String() string {
 	return toString(tr)
 }
 
+type Person struct {
+	Ansattnummber string `json:"ansattnummber"`
+	ArbeidsEpost  string `json:"arbeidsEpost"`
+	FeideBruker   string `json:"feideBruker"`
+	Fodselsnummer string `json:"fodselsnummer"`
+	PrivatEpost   string `json:"privateEpost"`
+	ID            string `json:"id"`
+	Maalform      string `json:"maalform"`
+	Navn          Navn   `json:"navn"`
+}
 type AddPersonRequest struct {
 	Errors Errors `json:"errors"`
 	Result struct {
-		Person PersonProfil `json:"person"`
+		Person Person `json:"personProfil"`
 	} `json:"result"`
 }
 
 type AddPersonerResponse struct {
-	PersonProfil []PersonProfil `json:"personProfil"`
+	PersonProfil []Person `json:"personProfil"`
 }
 
 // FagpersonerGittFodselsnumreResponse is the model for the response which is
@@ -163,11 +173,11 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 type AddPersonWithoutNINRequest struct {
 	Errors   Errors `json:"errors"`
 	Resultat struct {
-		Person PersonProfil `json:"person"`
+		Person Person `json:"person"`
 	} `json:"resultat"`
 }
 type AddPersonWithoutNINResponse struct {
-	PersonProfil []PersonProfil `json:"person"`
+	PersonProfil []Person `json:"person"`
 }
 
 // OpprettPersonProfilerUtenFodselsnummerResponse is the model for the response which is
