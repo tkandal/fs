@@ -139,14 +139,15 @@ func (tr TelefonResponse) String() string {
 }
 
 type Person struct {
-	Ansattnummber string `json:"ansattnummber"`
-	ArbeidsEpost  string `json:"arbeidsEpost"`
-	FeideBruker   string `json:"feideBruker"`
-	Fodselsnummer string `json:"fodselsnummer"`
-	PrivatEpost   string `json:"privateEpost"`
-	ID            string `json:"id"`
-	Maalform      string `json:"maalform"`
-	Navn          Navn   `json:"navn"`
+	Ansattnummer     string `json:"ansattnummer"`
+	ArbeidsEpost     string `json:"arbeidsEpost"`
+	FeideBruker      string `json:"feideBruker"`
+	Fodselsnummer    string `json:"fodselsnummer"`
+	PrivatEpost      string `json:"privateEpost"`
+	Personlopenummer string `json:"personlopenummer"`
+	ID               string `json:"id"`
+	Maalform         string `json:"maalform"`
+	Navn             Navn   `json:"navn"`
 }
 
 func (pr Person) IsEmpty() bool {
@@ -162,14 +163,14 @@ func (pr Person) String() string {
 }
 
 type AddPersonRequest struct {
-	Errors Errors `json:"errors"`
+	Errors Errors `json:"errors" graphql:"errors"`
 	Result struct {
-		Person Person `json:"personProfil"`
-	} `json:"result"`
+		Person Person `json:"personProfil" graphql:"personProfil"`
+	} `json:"result" graphql:"result"`
 }
 
 type AddPersonerResponse struct {
-	PersonProfil []Person `json:"personProfil"`
+	PersonProfil []Person `json:"personProfil" graphql:"personProfil"`
 }
 
 // FagpersonerGittFodselsnumreResponse is the model for the response which is
@@ -184,10 +185,10 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 }
 
 type AddPersonWithoutNINRequest struct {
-	Errors   Errors `json:"errors"`
+	Errors   Errors `json:"errors" graphql:"errors"`
 	Resultat struct {
-		Person Person `json:"person"`
-	} `json:"resultat"`
+		Person Person `json:"person" graphql:"person"`
+	} `json:"resultat" graphql:"resultat"`
 }
 type AddPersonWithoutNINResponse struct {
 	PersonProfil []Person `json:"person"`
