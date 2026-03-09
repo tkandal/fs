@@ -72,7 +72,7 @@ func (ep EmployeePersonResponse) String() string {
 // UgyldigInput contains the error details.
 type UgyldigInput struct {
 	Typename string   `json:"__typename" graphql:"__typename"`
-	Mesage   string   `json:"message"    graphql:"message"`
+	Message  string   `json:"message"    graphql:"message"`
 	Path     []string `json:"path"       graphql:"path"`
 }
 
