@@ -248,9 +248,9 @@ func (fp EndreEpostadresserForPersonProfilerResponse) String() string {
 	return toString(fp)
 }
 
-// ChangeMobilePhoneResponse is the model for the response which is
+// ChangePhoneResponse is the model for the response which is
 // received when updating phone numbers.
-type ChangeMobilePhoneResponse struct {
+type ChangePhoneResponse struct {
 	EndreTelefonnumre struct {
 		Errors       []UgyldigInput `graphql:"errors"`
 		Telefonnumre []struct {
@@ -261,15 +261,15 @@ type ChangeMobilePhoneResponse struct {
 	} `json:"endreTelefonnumre"`
 }
 
-func (cp ChangeMobilePhoneResponse) IsEmpty() bool {
-	return reflect.DeepEqual(cp, ChangeMobilePhoneResponse{})
+func (cp ChangePhoneResponse) IsEmpty() bool {
+	return reflect.DeepEqual(cp, ChangePhoneResponse{})
 }
 
-func (cp ChangeMobilePhoneResponse) Equal(o ChangeMobilePhoneResponse) bool {
+func (cp ChangePhoneResponse) Equal(o ChangePhoneResponse) bool {
 	return reflect.DeepEqual(cp, o)
 }
 
-func (cp ChangeMobilePhoneResponse) String() string {
+func (cp ChangePhoneResponse) String() string {
 	return toString(cp)
 }
 
