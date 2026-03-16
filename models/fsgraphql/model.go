@@ -148,6 +148,15 @@ type Person struct {
 	Personlopenummer string `json:"personlopenummer"`
 	Maalform         string `json:"maalform"`
 	Navn             Navn   `json:"navn"`
+	Fagperson        struct {
+		ID                string `json:"id"`
+		ErEkstern         bool   `json:"erEkstern"`
+		FagpersonKategori struct {
+			ID   string `json:"id"`
+			Kode string `json:"kode"`
+		}
+		ErAktiv bool `json:"erAktiv"`
+	}
 }
 
 func (pr Person) IsEmpty() bool {
@@ -237,6 +246,31 @@ func (fp EndreEpostadresserForPersonProfilerResponse) Equal(o EndreEpostadresser
 
 func (fp EndreEpostadresserForPersonProfilerResponse) String() string {
 	return toString(fp)
+}
+
+// ChangeMobilePhoneResponse is the model for the response which is
+// received when updating phone numbers.
+type ChangeMobilePhoneResponse struct {
+	EndreTelefonnumre struct {
+		Errors       []UgyldigInput `graphql:"errors"`
+		Telefonnumre []struct {
+			ID         string `json:"id"`
+			Landnummer string `json:"landnummer"`
+			Nummer     string `json:"nummer"`
+		} `graphql:"telefonnumre"`
+	} `json:"endreTelefonnumre"`
+}
+
+func (cp ChangeMobilePhoneResponse) IsEmpty() bool {
+	return reflect.DeepEqual(cp, ChangeMobilePhoneResponse{})
+}
+
+func (cp ChangeMobilePhoneResponse) Equal(o ChangeMobilePhoneResponse) bool {
+	return reflect.DeepEqual(cp, o)
+}
+
+func (cp ChangeMobilePhoneResponse) String() string {
+	return toString(cp)
 }
 
 func toString(v any) string {
