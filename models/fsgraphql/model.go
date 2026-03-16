@@ -139,13 +139,13 @@ func (tr TelefonResponse) String() string {
 }
 
 type Person struct {
+	ID               string `json:"id"`
 	Ansattnummer     string `json:"ansattnummer"`
 	ArbeidsEpost     string `json:"arbeidsEpost"`
 	FeideBruker      string `json:"feideBruker"`
 	Fodselsnummer    string `json:"fodselsnummer"`
 	PrivatEpost      string `json:"privateEpost"`
 	Personlopenummer string `json:"personlopenummer"`
-	ID               string `json:"id"`
 	Maalform         string `json:"maalform"`
 	Navn             Navn   `json:"navn"`
 }
@@ -197,8 +197,10 @@ type AddPersonWithoutNINResponse struct {
 // OpprettPersonProfilerUtenFodselsnummerResponse is the model for the response which is
 // received when creating a new person.
 type OpprettPersonProfilerUtenFodselsnummerResponse struct {
-	OpprettPersonProfilerUtenFodselsnummer ResponseErrors              `json:"opprettPersonProfilerUtenFodselsnummer"`
-	AddPersonResponse                      AddPersonWithoutNINResponse `json:"resultat"`
+	OpprettPersonProfilerUtenFodselsnummer struct {
+		Errors   []Errors `json:"errors"`
+		Resultat []Person `json:"resultat"`
+	} `json:"opprettPersonProfilerUtenFodselsnummer"`
 }
 
 func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
@@ -213,6 +215,27 @@ type OpprettFagpersonerGittPassResponse struct {
 }
 
 func (fp OpprettFagpersonerGittPassResponse) String() string {
+	return toString(fp)
+}
+
+// EndreEpostadresserForPersonProfilerResponse is the model for the response which is
+// received when updating emails.
+type EndreEpostadresserForPersonProfilerResponse struct {
+	EndreEpostadresserForPersonProfiler struct {
+		Errors         []Errors `json:"errors"`
+		PersonProfiler []Person `json:"personProfiler"`
+	} `json:"endreEpostadresserForPersonProfiler"`
+}
+
+func (fp EndreEpostadresserForPersonProfilerResponse) IsEmpty() bool {
+	return reflect.DeepEqual(fp, EndreEpostadresserForPersonProfilerResponse{})
+}
+
+func (fp EndreEpostadresserForPersonProfilerResponse) Equal(o EndreEpostadresserForPersonProfilerResponse) bool {
+	return reflect.DeepEqual(fp, o)
+}
+
+func (fp EndreEpostadresserForPersonProfilerResponse) String() string {
 	return toString(fp)
 }
 
