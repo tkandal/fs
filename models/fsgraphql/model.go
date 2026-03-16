@@ -198,8 +198,8 @@ type AddPersonWithoutNINResponse struct {
 // received when creating a new person.
 type OpprettPersonProfilerUtenFodselsnummerResponse struct {
 	OpprettPersonProfilerUtenFodselsnummer struct {
-		Errors   []Errors `json:"errors"`
-		Resultat []Person `json:"resultat"`
+		Errors   []UgyldigInput `json:"errors"`
+		Resultat []Person       `json:"resultat"`
 	} `json:"opprettPersonProfilerUtenFodselsnummer"`
 }
 
@@ -222,8 +222,8 @@ func (fp OpprettFagpersonerGittPassResponse) String() string {
 // received when updating emails.
 type EndreEpostadresserForPersonProfilerResponse struct {
 	EndreEpostadresserForPersonProfiler struct {
-		Errors         []Errors `json:"errors"`
-		PersonProfiler []Person `json:"personProfiler"`
+		Errors         []UgyldigInput `json:"errors"`
+		PersonProfiler []Person       `json:"personProfiler"`
 	} `json:"endreEpostadresserForPersonProfiler"`
 }
 
