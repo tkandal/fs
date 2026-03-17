@@ -156,7 +156,8 @@ type Person struct {
 			Kode string `json:"kode"`
 		}
 		ErAktiv bool `json:"erAktiv"`
-	}
+	} `json:"fagperson"`
+	FolkeregistrertAdresse Adresse `json:"folkeregistrertAdresse"`
 }
 
 func (pr Person) IsEmpty() bool {
