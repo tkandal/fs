@@ -152,10 +152,14 @@ type Person struct {
 		ID                string `json:"id"`
 		ErEkstern         bool   `json:"erEkstern"`
 		FagpersonKategori struct {
-			ID   string `json:"id"`
-			Kode string `json:"kode"`
+			ID            string `json:"id"`
+			Kode          string `json:"kode"`
+			NavnAlleSprak struct {
+				Und string `json:"und"`
+			} `json:"navnAlleSprak"`
 		}
-		ErAktiv bool `json:"erAktiv"`
+		ErAktiv                  bool   `json:"erAktiv"`
+		StillingstittelAlleSprak Tittel `json:"stillingstittelAlleSprak"`
 	} `json:"fagperson"`
 	FolkeregistrertAdresse Adresse `json:"folkeregistrertAdresse"`
 }
