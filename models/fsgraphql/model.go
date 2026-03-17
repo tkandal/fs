@@ -139,18 +139,23 @@ func (tr TelefonResponse) String() string {
 }
 
 type Person struct {
-	ID               string `json:"id"`
-	Ansattnummer     string `json:"ansattnummer"`
-	ArbeidsEpost     string `json:"arbeidsEpost"`
-	FeideBruker      string `json:"feideBruker"`
-	Fodselsnummer    string `json:"fodselsnummer"`
-	PrivatEpost      string `json:"privateEpost"`
-	Personlopenummer string `json:"personlopenummer"`
-	Maalform         string `json:"maalform"`
-	Navn             Navn   `json:"navn"`
+	ID               string  `json:"id"`
+	Ansattnummer     string  `json:"ansattnummer"`
+	ArbeidsEpost     string  `json:"arbeidsEpost"`
+	FeideBruker      string  `json:"feideBruker"`
+	Fodselsnummer    string  `json:"fodselsnummer"`
+	PrivatEpost      string  `json:"privateEpost"`
+	Personlopenummer string  `json:"personlopenummer"`
+	Maalform         string  `json:"maalform"`
+	Navn             Navn    `json:"navn"`
+	MobilTelefon     Telefon `json:"mobilTelefon"`
+	PrivatTelefon    Telefon `json:"privatTelefon"`
+	ArbeidsTelefon   Telefon `json:"arbeidsTelefon"`
+	Kjonn            string  `json:"kjonn"`
 	Fagperson        struct {
-		ID                string `json:"id"`
-		ErEkstern         bool   `json:"erEkstern"`
+		AnsattVed         AnsattVed `json:"ansattVed"`
+		ID                string    `json:"id"`
+		ErEkstern         bool      `json:"erEkstern"`
 		FagpersonKategori struct {
 			ID            string `json:"id"`
 			Kode          string `json:"kode"`
