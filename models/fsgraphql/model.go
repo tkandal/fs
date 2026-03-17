@@ -274,6 +274,27 @@ func (cp ChangePhoneResponse) String() string {
 	return toString(cp)
 }
 
+// ChangeAddressResponse is the model for the response which is
+// received when updating registered address.
+type ChangeAddressResponse struct {
+	EndreFolkeregistrerteAdresser struct {
+		Errors         []UgyldigInput `json:"errors"`
+		PersonProfiler []Person       `json:"personProfiler"`
+	} `json:"endreFolkeregistrerteAdresser"`
+}
+
+func (ca ChangeAddressResponse) IsEmpty() bool {
+	return reflect.DeepEqual(ca, ChangeAddressResponse{})
+}
+
+func (ca ChangeAddressResponse) Equal(o ChangeAddressResponse) bool {
+	return reflect.DeepEqual(ca, o)
+}
+
+func (ca ChangeAddressResponse) String() string {
+	return toString(ca)
+}
+
 func toString(v any) string {
 	buf := &bytes.Buffer{}
 	if err := json.NewEncoder(buf).Encode(v); err != nil {
