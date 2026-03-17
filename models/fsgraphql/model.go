@@ -153,18 +153,12 @@ type Person struct {
 	ArbeidsTelefon   Telefon `json:"arbeidsTelefon"`
 	Kjonn            string  `json:"kjonn"`
 	Fagperson        struct {
-		AnsattVed         AnsattVed `json:"ansattVed"`
-		ID                string    `json:"id"`
-		ErEkstern         bool      `json:"erEkstern"`
-		FagpersonKategori struct {
-			ID            string `json:"id"`
-			Kode          string `json:"kode"`
-			NavnAlleSprak struct {
-				Und string `json:"und"`
-			} `json:"navnAlleSprak"`
-		}
-		ErAktiv                  bool   `json:"erAktiv"`
-		StillingstittelAlleSprak Tittel `json:"stillingstittelAlleSprak"`
+		AnsattVed                AnsattVed `json:"ansattVed"`
+		ID                       string    `json:"id"`
+		ErEkstern                bool      `json:"erEkstern"`
+		FagpersonKategori        Kategori  `json:"fagpersonKategori"`
+		ErAktiv                  bool      `json:"erAktiv"`
+		StillingstittelAlleSprak Tittel    `json:"stillingstittelAlleSprak"`
 	} `json:"fagperson"`
 	FolkeregistrertAdresse Adresse `json:"folkeregistrertAdresse"`
 }

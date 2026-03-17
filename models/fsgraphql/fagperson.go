@@ -8,12 +8,21 @@ import (
  * Copyright (c) 2026 Norwegian University of Science and Technology, Trondheim, Norway
  */
 
+type Kategori struct {
+	ID            string `json:"id" graphql:"id"`
+	Kode          string `json:"kode" graphql:"kode"`
+	NavnAlleSprak struct {
+		Und string `json:"und" graphql:"und"`
+	} `json:"navnAlleSprak" graphql:"navnAlleSprak"`
+}
+
 // Fagperson er the model for faculty staff from the FS GraphQL API.
 type Fagperson struct {
-	ErAktiv   bool      `json:"erAktiv"   graphql:"erAktiv"`
-	AnsattVed AnsattVed `json:"ansattVed" graphql:"ansattVed"`
-	// ErEkstern                bool      `json:"erEkstern"                graphql:"erEkstern"`
-	StillingstittelAlleSprak Tittel `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
+	ErAktiv                  bool      `json:"erAktiv"   graphql:"erAktiv"`
+	AnsattVed                AnsattVed `json:"ansattVed" graphql:"ansattVed"`
+	ErEkstern                bool      `json:"erEkstern"                graphql:"erEkstern"`
+	StillingstittelAlleSprak Tittel    `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
+	FagpersonKategori        Kategori  `json:"fagpersonKategori" graphql:"fagpersonKategori"`
 }
 
 // Equal checks if this Fagperson is equal to the given Fagperson.
