@@ -198,11 +198,12 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 }
 
 type AddPersonWithoutNINRequest struct {
-	Errors   Errors `json:"errors" graphql:"errors"`
+	Errors   Errors `json:"errors"   graphql:"errors"`
 	Resultat struct {
 		Person Person `json:"person" graphql:"person"`
 	} `json:"resultat" graphql:"resultat"`
 }
+
 type AddPersonWithoutNINResponse struct {
 	PersonProfil []Person `json:"person"`
 }
@@ -296,6 +297,27 @@ func (ca ChangeAddressResponse) Equal(o ChangeAddressResponse) bool {
 
 func (ca ChangeAddressResponse) String() string {
 	return toString(ca)
+}
+
+// DeactivateFagpersonerResponse is the model for the response which is
+// returned when deactivating faculty persons.
+type DeactivateFagpersonerResponse struct {
+	DeaktiverFagpersoner struct {
+		Errors      []UgyldigInput    `json:"errors"`
+		Fagpersoner []FagpersonProfil `json:"fagpersoner"`
+	} `json:"deaktiverFagpersoner"`
+}
+
+func (df DeactivateFagpersonerResponse) IsEmpty() bool {
+	return reflect.DeepEqual(df, DeactivateFagpersonerResponse{})
+}
+
+func (df *DeactivateFagpersonerResponse) Еqual(o DeactivateFagpersonerResponse) bool {
+	return reflect.DeepEqual(df, o)
+}
+
+func (df DeactivateFagpersonerResponse) String() string {
+	return toString(df)
 }
 
 func toString(v any) string {
