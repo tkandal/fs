@@ -22,6 +22,7 @@ func (pr PersonResponse) String() string {
 
 // FagpersonProfil is the model for faculty staff from FS GraphQL API.
 type FagpersonProfil struct {
+	ID                       string       `json:"id"`
 	ErEkstern                bool         `json:"erEkstern"                graphql:"erEkstern"`
 	PersonProfil             PersonProfil `json:"personProfil"             graphql:"personProfil"`
 	StillingstittelAlleSprak Tittel       `json:"stillingstittelAlleSprak" graphql:"stillingstittelAlleSprak"`
