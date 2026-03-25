@@ -313,12 +313,54 @@ func (df DeactivateFagpersonerResponse) IsEmpty() bool {
 	return reflect.DeepEqual(df, DeactivateFagpersonerResponse{})
 }
 
-func (df *DeactivateFagpersonerResponse) Еqual(o DeactivateFagpersonerResponse) bool {
+func (df DeactivateFagpersonerResponse) Еqual(o DeactivateFagpersonerResponse) bool {
 	return reflect.DeepEqual(df, o)
 }
 
 func (df DeactivateFagpersonerResponse) String() string {
 	return toString(df)
+}
+
+// ActivateFagpersonerResponse is the model for the response which is
+// returned when activating faculty persons.
+type ActivateFagpersonerResponse struct {
+	AktiverFagpersoner struct {
+		Errors      []UgyldigInput    `json:"errors"`
+		Fagpersoner []FagpersonProfil `json:"fagpersoner"`
+	} `json:"aktiverFagpersoner"`
+}
+
+func (df ActivateFagpersonerResponse) IsEmpty() bool {
+	return reflect.DeepEqual(df, ActivateFagpersonerResponse{})
+}
+
+func (df ActivateFagpersonerResponse) Еqual(o ActivateFagpersonerResponse) bool {
+	return reflect.DeepEqual(df, o)
+}
+
+func (df ActivateFagpersonerResponse) String() string {
+	return toString(df)
+}
+
+// UserinformationResponse is the model for the response which is
+// returned when changing user information.
+type UserinformationResponse struct {
+	AngiBrukerinformasjon struct {
+		Errors       []UgyldigInput `json:"errors"`
+		PersonProfil []PersonProfil `json:"personProfiler"`
+	} `json:"angiBrukerinformasjonForPersonProfiler"`
+}
+
+func (ur UserinformationResponse) IsEmpty() bool {
+	return reflect.DeepEqual(ur, UserinformationResponse{})
+}
+
+func (ur UserinformationResponse) Еqual(o UserinformationResponse) bool {
+	return reflect.DeepEqual(ur, o)
+}
+
+func (ur UserinformationResponse) String() string {
+	return toString(ur)
 }
 
 func toString(v any) string {
