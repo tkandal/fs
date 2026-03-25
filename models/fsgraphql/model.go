@@ -346,8 +346,8 @@ func (df ActivateFagpersonerResponse) String() string {
 // returned when changing user information.
 type UserinformationResponse struct {
 	AngiBrukerinformasjon struct {
-		Errors       []UgyldigInput `json:"errors"`
-		PersonProfil []PersonProfil `json:"personProfiler"`
+		Errors         []UgyldigInput `json:"errors"`
+		PersonProfiler []Person       `json:"personProfiler"`
 	} `json:"angiBrukerinformasjonForPersonProfiler"`
 }
 
