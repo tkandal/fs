@@ -8,9 +8,9 @@ import "reflect"
 
 // PersonProfil is the model for a person from FS GraphQL API.
 type PersonProfil struct {
-	ID                     string            `json:"id"           graphql:"id"`
-	Ansattnummer           string            `json:"ansattnummer" graphql:"ansattnummer"`
-	ArbeidsEpost           string            `json:"arbeidsEpost" graphql:"arbeidsEpost"`
+	ID                     string            `json:"id"                     graphql:"id"`
+	Ansattnummer           string            `json:"ansattnummer"           graphql:"ansattnummer"`
+	ArbeidsEpost           string            `json:"arbeidsEpost"           graphql:"arbeidsEpost"`
 	Fagperson              Fagperson         `json:"fagperson"              graphql:"fagperson"`
 	ArbeidsTelefon         Telefon           `json:"arbeidsTelefon"         graphql:"arbeidsTelefon"`
 	FeideBruker            string            `json:"feideBruker"            graphql:"feideBruker"`
@@ -29,6 +29,7 @@ type PersonProfil struct {
 	FolkeregistrertAdresse Adresse           `json:"folkeregistrertAdresse" graphql:"folkeregistrertAdresse"`
 	Navn                   Navn              `json:"navn"                   graphql:"navn"`
 	PrivatTelefon          Telefon           `json:"privatTelefon"          graphql:"privatTelefon"`
+	ErDod                  bool              `json:"erDod"`
 }
 
 func (pf PersonProfil) Equal(o PersonProfil) bool {

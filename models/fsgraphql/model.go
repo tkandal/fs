@@ -88,11 +88,6 @@ func (gi UgyldigInput) String() string {
 // Errors contains all the error messages or null if the mutation was successful.
 type Errors struct {
 	UgyldigInput UgyldigInput `graphql:"... on UgyldigInput"`
-	// UgyldigFodselsdatoFraFodselsnummer UgyldigInput `graphql:"... on UgyldigFodselsdatoFraFodselsnummer"`
-	// UgyldigFodselsnummer               UgyldigInput `graphql:"... on UgyldigFodselsnummer"`
-	// UgyldigNorskTelefonnummer          UgyldigInput `graphql:"... on UgyldigNorskTelefonnummer"`
-	// FagpersonFinnesForPerson           UgyldigInput `graphql:"... on FagpersonFinnesForPerson"`
-	// UgyldigPassnummer                  UgyldigInput `graphql:"... on UgyldigPassnummer"`
 }
 
 func (e Errors) IsEmpty() bool {
@@ -162,6 +157,7 @@ type Person struct {
 		StillingstittelAlleSprak Tittel    `json:"stillingstittelAlleSprak"`
 	} `json:"fagperson"`
 	FolkeregistrertAdresse Adresse `json:"folkeregistrertAdresse"`
+	ErDod                  bool    `json:"erDod"`
 }
 
 func (pr Person) IsEmpty() bool {
