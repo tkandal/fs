@@ -221,7 +221,7 @@ func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
 // OpprettFagpersonerGittPassResponse is model for the response which is received when
 // creating a new person by passort.
 type OpprettFagpersonerGittPassResponse struct {
-	OpprettFagpersonGittPass struct {
+	OpprettFagpersonerGittPass struct {
 		Errors       []UgyldigInput `json:"errors"`
 		PersonProfil []Person       `json:"result"`
 	} `json:"opprettFagpersonerGittPass"`
