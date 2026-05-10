@@ -186,8 +186,10 @@ type AddPersonerResponse struct {
 // FagpersonerGittFodselsnumreResponse is the model for the response which is
 // received when creating a new person by NIN.
 type FagpersonerGittFodselsnumreResponse struct {
-	OpprettFagpersonerGittFodselsnumre ResponseErrors      `json:"opprettFagpersonerGittFodselsnumre"`
-	Result                             AddPersonerResponse `json:"result"`
+	OpprettFagpersonerGittFodselsnumre struct {
+		Errors []UgyldigInput      `json:"errors"`
+		Result AddPersonerResponse `json:"result"`
+	} `json:"opprettFagpersonerGittFodselsnumre"`
 }
 
 func (ff FagpersonerGittFodselsnumreResponse) String() string {
@@ -195,10 +197,10 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 }
 
 type AddPersonWithoutNINRequest struct {
-	Errors   Errors `json:"errors"   graphql:"errors"`
-	Resultat struct {
+	Errors Errors `json:"errors"   graphql:"errors"`
+	Result struct {
 		Person Person `json:"person" graphql:"person"`
-	} `json:"resultat" graphql:"resultat"`
+	} `json:"resultat" graphql:"result"`
 }
 
 type AddPersonWithoutNINResponse struct {
@@ -210,7 +212,9 @@ type AddPersonWithoutNINResponse struct {
 type OpprettPersonProfilerUtenFodselsnummerResponse struct {
 	OpprettPersonProfilerUtenFodselsnummer struct {
 		Errors   []UgyldigInput `json:"errors"`
-		Resultat []Person       `json:"result"`
+		Resultat struct {
+			Person []Person `json:"person"`
+		} `json:"resultat"`
 	} `json:"opprettPersonProfilerUtenFodselsnummer"`
 }
 
@@ -222,8 +226,8 @@ func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
 // creating a new person by passort.
 type OpprettFagpersonerGittPassResponse struct {
 	OpprettFagpersonerGittPass struct {
-		Errors       []UgyldigInput `json:"errors"`
-		PersonProfil []Person       `json:"result"`
+		Errors []UgyldigInput      `json:"errors"`
+		Result AddPersonerResponse `json:"result"`
 	} `json:"opprettFagpersonerGittPass"`
 }
 
