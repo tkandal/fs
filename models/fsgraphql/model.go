@@ -210,7 +210,7 @@ type AddPersonWithoutNINResponse struct {
 type OpprettPersonProfilerUtenFodselsnummerResponse struct {
 	OpprettPersonProfilerUtenFodselsnummer struct {
 		Errors   []UgyldigInput `json:"errors"`
-		Resultat []Person       `json:"resultat"`
+		Resultat []Person       `json:"result"`
 	} `json:"opprettPersonProfilerUtenFodselsnummer"`
 }
 
@@ -221,8 +221,10 @@ func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
 // OpprettFagpersonerGittPassResponse is model for the response which is received when
 // creating a new person by passort.
 type OpprettFagpersonerGittPassResponse struct {
-	OpprettFagpersonerGittPass ResponseErrors      `json:"opprettFagpersonerGittPass"`
-	Result                     AddPersonerResponse `json:"result"`
+	OpprettFagpersonGittPass struct {
+		Errors       []UgyldigInput `json:"errors"`
+		PersonProfil []Person       `json:"result"`
+	} `json:"opprettFagpersonerGittPass"`
 }
 
 func (fp OpprettFagpersonerGittPassResponse) String() string {
@@ -242,7 +244,9 @@ func (fp EndreEpostadresserForPersonProfilerResponse) IsEmpty() bool {
 	return reflect.DeepEqual(fp, EndreEpostadresserForPersonProfilerResponse{})
 }
 
-func (fp EndreEpostadresserForPersonProfilerResponse) Equal(o EndreEpostadresserForPersonProfilerResponse) bool {
+func (fp EndreEpostadresserForPersonProfilerResponse) Equal(
+	o EndreEpostadresserForPersonProfilerResponse,
+) bool {
 	return reflect.DeepEqual(fp, o)
 }
 

@@ -8,7 +8,7 @@ import "reflect"
 
 // Student is the model for a student from FS GraphQL API.
 type Student struct {
-	ID            string `json:"id" graphql:"id"`
+	ID            string `json:"id"            graphql:"id"`
 	Studentnummer string `json:"studentnummer" graphql:"studentnummer"`
 }
 
@@ -35,8 +35,8 @@ type PersonProfil struct {
 	FolkeregistrertAdresse Adresse           `json:"folkeregistrertAdresse" graphql:"folkeregistrertAdresse"`
 	Navn                   Navn              `json:"navn"                   graphql:"navn"`
 	PrivatTelefon          Telefon           `json:"privatTelefon"          graphql:"privatTelefon"`
-	Student                Student           `json:"student" graphql:"student"`
-	ErDod                  bool              `json:"erDod" graphql:"erDod"`
+	Student                Student           `json:"student"                graphql:"student"`
+	ErDod                  bool              `json:"erDod"                  graphql:"erDod"`
 }
 
 func (pf PersonProfil) Equal(o PersonProfil) bool {
