@@ -210,15 +210,8 @@ type AddPersonWithoutNINResponse struct {
 	} `json:"resultat"`
 }
 
-// OpprettPersonProfilerUtenFodselsnummerResponse is the model for the response which is
-// received when creating a new person.
-type OpprettPersonProfilerUtenFodselsnummerResponse struct {
-	Errors   []UgyldigInput              `json:"errors"`
-	Resultat AddPersonWithoutNINResponse `json:"resultat"`
-}
-
-func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
-	return toString(uf)
+func (ap *AddPersonWithoutNINResponse) String() string {
+	return toString(ap)
 }
 
 // OpprettFagpersonerGittPassResponse is model for the response which is received when
