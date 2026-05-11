@@ -186,8 +186,10 @@ type AddPersonerResponse struct {
 // FagpersonerGittFodselsnumreResponse is the model for the response which is
 // received when creating a new person by NIN.
 type FagpersonerGittFodselsnumreResponse struct {
-	Errors []UgyldigInput      `json:"errors"`
-	Result AddPersonerResponse `json:"result"`
+	Errors []UgyldigInput `json:"errors"`
+	Result []struct {
+		PersonProfil Person `json:"personProfil"`
+	} `json:"result"`
 }
 
 func (ff FagpersonerGittFodselsnumreResponse) String() string {
@@ -202,7 +204,10 @@ type AddPersonWithoutNINRequest struct {
 }
 
 type AddPersonWithoutNINResponse struct {
-	PersonProfil []Person `json:"person"`
+	Errors   []UgyldigInput `json:"errors"`
+	Resultat []struct {
+		PersonProfil []Person `json:"person"`
+	} `json:"resultat"`
 }
 
 // OpprettPersonProfilerUtenFodselsnummerResponse is the model for the response which is
@@ -219,8 +224,10 @@ func (uf OpprettPersonProfilerUtenFodselsnummerResponse) String() string {
 // OpprettFagpersonerGittPassResponse is model for the response which is received when
 // creating a new person by passort.
 type OpprettFagpersonerGittPassResponse struct {
-	Errors []UgyldigInput      `json:"errors"`
-	Result AddPersonerResponse `json:"result"`
+	Errors []UgyldigInput `json:"errors"`
+	Result []struct {
+		PersonProfil Person `json:"personProfil"`
+	} `json:"result"`
 }
 
 func (fp OpprettFagpersonerGittPassResponse) String() string {
