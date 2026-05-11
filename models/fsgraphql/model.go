@@ -206,7 +206,7 @@ type AddPersonWithoutNINRequest struct {
 type AddPersonWithoutNINResponse struct {
 	Errors   []UgyldigInput `json:"errors"`
 	Resultat []struct {
-		PersonProfil []Person `json:"person"`
+		PersonProfil Person `json:"person"`
 	} `json:"resultat"`
 }
 
