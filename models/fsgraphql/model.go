@@ -203,7 +203,7 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 type AddAdmPersonNinRequest struct {
 	Errors Errors `json:"errors"   graphql:"errors"`
 	Result struct {
-		PersonProfil PersonProfil `json:"personProfil" graphql:"personProfil"`
+		PersonProfil Person `json:"personProfil" graphql:"personProfil"`
 	} `json:"resultat" graphql:"resultat"`
 }
 
@@ -213,7 +213,7 @@ type AddAdmPersonNinResponse struct {
 	OpprettAdministrativtAnsatteGittFodselsnummer struct {
 		Errors   []UgyldigInput `json:"errors"`
 		Resultat []struct {
-			PersonProfil PersonProfil `json:"personProfil"`
+			PersonProfil Person `json:"personProfil"`
 		} `json:"resultat"`
 	} `json:"opprettAdministrativtAnsatteGittFodselsnummer"`
 }
