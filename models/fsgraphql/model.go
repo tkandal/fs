@@ -198,6 +198,30 @@ func (ff FagpersonerGittFodselsnumreResponse) String() string {
 	return toString(ff)
 }
 
+// AddAdmPersonNinRequest is a request type for adding
+// administrative persons to FS by NIN.
+type AddAdmPersonNinRequest struct {
+	Errors Errors `json:"errors"   graphql:"errors"`
+	Result struct {
+		PersonProfil PersonProfil `json:"personProfil" graphql:"personProfil"`
+	} `json:"resultat" graphql:"resultat"`
+}
+
+// AddAdmPersonNinResponse is a response model when adding
+// adminstrative persons to FS by NIN.
+type AddAdmPersonNinResponse struct {
+	OpprettAdministrativtAnsatteGittFodselsnummer struct {
+		Errors   []UgyldigInput `json:"errors"`
+		Resultat []struct {
+			PersonProfil PersonProfil `json:"personProfil"`
+		} `json:"resultat"`
+	} `json:"opprettAdministrativtAnsatteGittFodselsnummer"`
+}
+
+func (aap *AddAdmPersonNinResponse) String() string {
+	return toString(aap)
+}
+
 type AddPersonWithoutNINRequest struct {
 	Errors Errors `json:"errors"   graphql:"errors"`
 	Result struct {
