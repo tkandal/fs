@@ -389,6 +389,27 @@ func (ur UserinformationResponse) String() string {
 	return toString(ur)
 }
 
+// ProfilerGittPersonlopenumreResponse is the model for the response which is
+// returned when searching by institution-number and FS-lopenr.
+type ProfilerGittPersonlopenumreResponse struct {
+	AngiBrukerinformasjon struct {
+		Errors         []UgyldigInput `jon:"errors"`
+		PersonProfiler []Person       `json:"personProfiler"`
+	} `json:"personProfilerGittPersonlopenumre"`
+}
+
+func (pr ProfilerGittPersonlopenumreResponse) IsEmpty() bool {
+	return reflect.DeepEqual(pr, ProfilerGittPersonlopenumreResponse{})
+}
+
+func (pr ProfilerGittPersonlopenumreResponse) Equal(o ProfilerGittPersonlopenumreResponse) bool {
+	return reflect.DeepEqual(pr, o)
+}
+
+func (pr ProfilerGittPersonlopenumreResponse) String() string {
+	return toString(pr)
+}
+
 func toString(v any) string {
 	buf := &bytes.Buffer{}
 	if err := json.NewEncoder(buf).Encode(v); err != nil {
