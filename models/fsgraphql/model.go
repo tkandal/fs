@@ -392,10 +392,8 @@ func (ur UserinformationResponse) String() string {
 // ProfilerGittPersonlopenumreResponse is the model for the response which is
 // returned when searching by institution-number and FS-lopenr.
 type ProfilerGittPersonlopenumreResponse struct {
-	ProfilerGittPersonlopenumre struct {
-		Errors         []UgyldigInput `jon:"errors"`
-		PersonProfiler []Person       `json:"personProfiler"`
-	} `json:"personProfilerGittPersonlopenumre"`
+	Errors         []UgyldigInput `json:"errors"`
+	PersonProfiler []PersonProfil `json:"personProfilerGittPersonlopenumre"`
 }
 
 func (pr ProfilerGittPersonlopenumreResponse) IsEmpty() bool {
