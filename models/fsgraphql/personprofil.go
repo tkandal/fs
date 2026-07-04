@@ -17,6 +17,7 @@ type PersonProfil struct {
 	ID                     string            `json:"id"                     graphql:"id"`
 	Ansattnummer           string            `json:"ansattnummer"           graphql:"ansattnummer"`
 	ArbeidsEpost           string            `json:"arbeidsEpost"           graphql:"arbeidsEpost"`
+	InstitusjonsEpost      string            `json:"institusjonsEpost"      graphql:"institusjonsEpost"`
 	Fagperson              Fagperson         `json:"fagperson"              graphql:"fagperson"`
 	ArbeidsTelefon         Telefon           `json:"arbeidsTelefon"         graphql:"arbeidsTelefon"`
 	FeideBruker            string            `json:"feideBruker"            graphql:"feideBruker"`
